@@ -17,7 +17,7 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`glass-card overflow-hidden rounded-2xl ${isLarge ? "max-w-md" : "max-w-xs"}`}
+      className={`bg-grid overflow-hidden rounded-2xl ${isLarge ? "max-w-md" : "max-w-xs"}`}
     >
       <div
         className={`relative ${isLarge ? "h-80" : "h-48"} w-full overflow-hidden`}

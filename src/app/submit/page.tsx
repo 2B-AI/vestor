@@ -79,7 +79,7 @@ export default function SubmitPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="glass-card space-y-4 rounded-2xl p-10 text-center"
+          className="bg-grid space-y-4 rounded-2xl p-10 text-center"
         >
           <div className="bg-neon/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
             <CheckCircle2 className="text-neon h-8 w-8" />
@@ -91,7 +91,7 @@ export default function SubmitPage() {
             {form.ticker}) is now in the queue. You&apos;ll be notified when it
             enters a voting round.
           </p>
-          <div className="glass-card inline-block rounded-xl p-4">
+          <div className="bg-grid inline-block rounded-xl p-4">
             <p className="text-muted-foreground mb-1 text-xs tracking-widest uppercase">
               Estimated Slot
             </p>
@@ -126,7 +126,7 @@ export default function SubmitPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           onSubmit={handleSubmit}
-          className="glass-card space-y-6 rounded-2xl p-6 sm:p-8"
+          className="bg-grid space-y-6 rounded-2xl p-6 sm:p-8"
         >
           {/* Image Upload */}
           <div className="space-y-2">
@@ -144,7 +144,7 @@ export default function SubmitPage() {
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    className="h-full w-full rounded-xl object-cover"
+                    className="h-full w-full rounded-xl object-contain"
                   />
                   <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/40 opacity-0 transition-opacity hover:opacity-100">
                     <p className="text-sm font-medium text-white">
@@ -157,7 +157,7 @@ export default function SubmitPage() {
                   <img
                     src="/memes/placeholder.svg"
                     alt="Upload placeholder"
-                    className="h-auto w-full max-w-[200px] opacity-60"
+                    className="h-auto w-full max-w-[200px] rounded-xl opacity-60"
                   />
                   <div className="text-center">
                     <p className="text-sm font-medium">

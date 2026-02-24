@@ -81,10 +81,7 @@ export default function LaunchesPage() {
             color: "text-destructive",
           },
         ].map((stat) => (
-          <div
-            key={stat.label}
-            className="glass-card rounded-xl p-4 text-center"
-          >
+          <div key={stat.label} className="bg-grid rounded-xl p-4 text-center">
             <p className={`text-2xl font-black ${stat.color}`}>{stat.count}</p>
             <p className="text-muted-foreground text-xs font-medium">
               {stat.label}
@@ -106,7 +103,7 @@ export default function LaunchesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.1 }}
-              className="glass-card hover:border-primary/20 overflow-hidden rounded-2xl transition-colors"
+              className="bg-grid hover:border-primary/20 overflow-hidden rounded-2xl transition-colors"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Image */}
@@ -181,7 +178,7 @@ export default function LaunchesPage() {
                         background:
                           launch.status === "failed"
                             ? "#ef4444"
-                            : "linear-gradient(90deg, #9945ff, #14f195)",
+                            : "linear-gradient(90deg, rgba(99,181,17,1), rgba(191,249,133,1))",
                       }}
                     />
                   </div>

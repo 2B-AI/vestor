@@ -43,7 +43,7 @@ export default function ContributionsPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="glass-card mx-auto max-w-lg space-y-6 rounded-2xl p-12 text-center"
+          className="bg-grid mx-auto max-w-lg space-y-6 rounded-2xl p-12 text-center"
         >
           <div className="bg-primary/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
             <Wallet className="text-primary h-8 w-8" />
@@ -101,7 +101,7 @@ export default function ContributionsPage() {
         transition={{ delay: 0.1 }}
         className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3"
       >
-        <div className="glass-card rounded-xl p-5">
+        <div className="bg-grid rounded-xl p-5">
           <div className="mb-2 flex items-center gap-2">
             <ArrowUpRight className="text-primary h-4 w-4" />
             <span className="text-muted-foreground text-sm font-medium">
@@ -112,7 +112,7 @@ export default function ContributionsPage() {
             {totalContributed.toFixed(1)} SOL
           </p>
         </div>
-        <div className="glass-card rounded-xl p-5">
+        <div className="bg-grid rounded-xl p-5">
           <div className="mb-2 flex items-center gap-2">
             <Clock className="text-warning h-4 w-4" />
             <span className="text-muted-foreground text-sm font-medium">
@@ -123,7 +123,7 @@ export default function ContributionsPage() {
             {totalPending.toFixed(1)} SOL
           </p>
         </div>
-        <div className="glass-card rounded-xl p-5">
+        <div className="bg-grid rounded-xl p-5">
           <div className="mb-2 flex items-center gap-2">
             <ArrowDownLeft className="text-destructive h-4 w-4" />
             <span className="text-muted-foreground text-sm font-medium">
@@ -148,7 +148,7 @@ export default function ContributionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.1 }}
-              className="glass-card hover:border-primary/20 overflow-hidden rounded-2xl transition-colors"
+              className="bg-grid hover:border-primary/20 overflow-hidden rounded-2xl transition-colors"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Image */}

@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
   <defs>
     <linearGradient id="bgP" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f1729"/>
-      <stop offset="100%" style="stop-color:#1a0a2e"/>
+      <stop offset="0%" style="stop-color:#70e00030"/>
+      <stop offset="100%" style="stop-color:#70e00050"/>
     </linearGradient>
     <linearGradient id="glowP" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7"/>
-      <stop offset="100%" style="stop-color:#14f195"/>
+      <stop offset="0%" style="stop-color:#fff"/>
+      <stop offset="100%" style="stop-color:#fff"/>
     </linearGradient>
   </defs>
   <rect width="400" height="400" fill="url(#bgP)"/>
-  <g opacity="0.04" stroke="#a855f7" stroke-width="0.5">
+  <g opacity="0.04" stroke="#fff" stroke-width="0.5">
     <line x1="0" y1="50" x2="400" y2="50"/><line x1="0" y1="100" x2="400" y2="100"/>
     <line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="200" x2="400" y2="200"/>
     <line x1="0" y1="250" x2="400" y2="250"/><line x1="0" y1="300" x2="400" y2="300"/>
@@ -20,7 +20,7 @@
     <line x1="250" y1="0" x2="250" y2="400"/><line x1="300" y1="0" x2="300" y2="400"/>
     <line x1="350" y1="0" x2="350" y2="400"/>
   </g>
-  <circle cx="200" cy="180" r="100" fill="#a855f7" opacity="0.05"/>
+  <circle cx="200" cy="180" r="100" fill="#fff" opacity="0.05"/>
   <!-- Upload icon -->
   <rect x="155" y="145" width="90" height="75" rx="12" fill="none" stroke="url(#glowP)" stroke-width="2.5" stroke-dasharray="8 4" opacity="0.5"/>
   <circle cx="180" cy="170" r="8" fill="url(#glowP)" opacity="0.4"/>
@@ -29,6 +29,6 @@
   <path d="M200 250 L200 270" stroke="url(#glowP)" stroke-width="2.5" opacity="0.5" stroke-linecap="round"/>
   <path d="M192 258 L200 250 L208 258" fill="none" stroke="url(#glowP)" stroke-width="2.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Text -->
-  <text x="200" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#a855f7" opacity="0.5">Upload your meme</text>
+  <text x="200" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#fff" opacity="0.5">Upload your meme</text>
   <text x="200" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#71717a" opacity="0.5">PNG, JPG, GIF up to 5MB</text>
 </svg>

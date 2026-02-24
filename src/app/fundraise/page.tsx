@@ -75,7 +75,7 @@ export default function FundraisePage() {
           animate={{ opacity: 1, x: 0 }}
           className="space-y-6 lg:col-span-3"
         >
-          <div className="glass-card overflow-hidden rounded-2xl">
+          <div className="bg-grid overflow-hidden rounded-2xl">
             <div className="relative h-64 overflow-hidden sm:h-80">
               <Image
                 src={meme.imageUrl}
@@ -125,7 +125,7 @@ export default function FundraisePage() {
           </div>
 
           {/* Distribution Info */}
-          <div className="glass-card rounded-2xl p-6">
+          <div className="bg-grid rounded-2xl p-6">
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">
               <PieChart className="text-primary h-5 w-5" />
               How Funds Are Used
@@ -151,10 +151,7 @@ export default function FundraisePage() {
                   color: "bg-warning",
                 },
               ].map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-secondary/50 rounded-xl p-4"
-                >
+                <div key={item.label} className="bg-secondary rounded-xl p-4">
                   <div className="mb-2 flex items-center gap-2">
                     <div className={`h-2.5 w-2.5 rounded-full ${item.color}`} />
                     <span className="text-sm font-medium">{item.label}</span>
@@ -169,7 +166,7 @@ export default function FundraisePage() {
           </div>
 
           {/* Token Distribution */}
-          <div className="glass-card rounded-2xl p-6">
+          <div className="bg-grid rounded-2xl p-6">
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">
               <Coins className="text-primary h-5 w-5" />
               Token Distribution
@@ -190,7 +187,7 @@ export default function FundraisePage() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="bg-secondary/30 flex items-center justify-between rounded-lg px-4 py-3"
+                  className="bg-secondary flex items-center justify-between rounded-lg px-4 py-3"
                 >
                   <div>
                     <p className="text-sm font-medium">{item.label}</p>
@@ -212,7 +209,7 @@ export default function FundraisePage() {
           transition={{ delay: 0.2 }}
           className="lg:col-span-2"
         >
-          <div className="glass-card sticky top-24 space-y-6 rounded-2xl p-6">
+          <div className="bg-grid sticky top-24 space-y-6 rounded-2xl p-6">
             <div>
               <h2 className="mb-1 text-xl font-black">Contribute SOL</h2>
               <p className="text-muted-foreground text-sm">
@@ -247,7 +244,7 @@ export default function FundraisePage() {
                       placeholder="0.00"
                       value={solAmount}
                       onChange={(e) => setSolAmount(e.target.value)}
-                      className="bg-secondary/50 border-border h-14 pr-16 text-lg"
+                      className="bg-secondary border-border h-14 pr-16 text-lg"
                       min="0"
                       step="0.1"
                       max={remainingCap}
@@ -263,7 +260,7 @@ export default function FundraisePage() {
                         onClick={() =>
                           setSolAmount(String(Math.min(amt, remainingCap)))
                         }
-                        className="bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary flex-1 rounded-lg py-2 text-xs font-bold transition-colors"
+                        className="bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary flex-1 rounded-lg py-2 text-xs font-bold transition-colors"
                       >
                         {amt} SOL
                       </button>
@@ -275,7 +272,7 @@ export default function FundraisePage() {
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
-                    className="bg-secondary/30 space-y-2 rounded-xl p-4"
+                    className="bg-secondary space-y-2 rounded-xl p-4"
                   >
                     <p className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
                       Estimated Allocation

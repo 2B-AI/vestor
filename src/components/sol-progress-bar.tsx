@@ -23,7 +23,8 @@ export function SolProgressBar({ raised, cap }: SolProgressBarProps) {
         <motion.div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
-            background: "linear-gradient(90deg, #9945ff, #14f195)",
+            background:
+              "linear-gradient(90deg, rgba(99,181,17,1), rgba(191,249,133,1))",
           }}
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
