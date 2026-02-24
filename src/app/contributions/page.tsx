@@ -213,7 +213,7 @@ export default function ContributionsPage() {
                           Token
                         </p>
                         <div className="flex items-center gap-1">
-                          <span className="font-mono text-sm">
+                          <span className="text-sm">
                             {contrib.tokenAddress}
                           </span>
                           <ExternalLink className="text-muted-foreground h-3 w-3" />

@@ -46,12 +46,12 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
         <div className="text-muted-foreground flex items-center justify-between text-xs">
           <span>
             Supply:{" "}
-            <span className="text-foreground font-mono">
+            <span className="text-foreground">
               {meme.tokenSupply.toLocaleString()}
             </span>
           </span>
           <span>
-            by <span className="text-primary font-mono">{meme.submitter}</span>
+            by <span className="text-primary">{meme.submitter}</span>
           </span>
         </div>
       </div>

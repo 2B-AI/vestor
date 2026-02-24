@@ -60,18 +60,18 @@ export default function Home() {
     <div className="relative">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="from-primary/5 absolute inset-0 bg-linear-to-b via-transparent to-transparent" />
+        <div className="absolute inset-0" />
         <div className="mx-auto max-w-7xl px-4 pt-12 pb-8 sm:px-6">
           {/* Status Bar */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-10 flex flex-wrap items-center justify-center gap-3"
+            className="mb-10 flex flex-wrap items-center gap-3"
           >
-            <Badge className="bg-neon/10 text-neon border-neon/20 gap-1.5 px-3 py-1">
+            <Badge className="bg-primary/10 text-primary border-primary/20 gap-1.5 px-3 py-1">
               <span className="relative flex h-2 w-2">
-                <span className="bg-neon absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" />
-                <span className="bg-neon relative inline-flex h-2 w-2 rounded-full" />
+                <span className="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" />
+                <span className="bg-primary relative inline-flex h-2 w-2 rounded-full" />
               </span>
               Round #{MOCK_ACTIVE_VOTE.id.split("-")[1]} Live
             </Badge>
@@ -100,14 +100,17 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="relative w-full max-w-md shrink-0"
             >
-              <div className="purple-glow relative aspect-square overflow-hidden rounded-3xl">
+              <div className="purple-glow bg-grid relative aspect-square overflow-hidden rounded-3xl">
                 <Image
                   src={meme.imageUrl}
                   alt={meme.name}
-                  fill
-                  className="object-cover"
-                  unoptimized
+                  height={300}
+                  width={220}
+                  className="mx-auto object-cover"
                 />
+                <div className="button-gradient mx-auto mt-3 text-white">
+                  {meme.name}
+                </div>
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
                   <Badge className="gap-1 border-white/10 bg-black/50 text-white backdrop-blur-sm">
@@ -116,22 +119,16 @@ export default function Home() {
                   </Badge>
                 </div>
                 <div className="absolute right-4 bottom-4 left-4">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-white/60">
-                        Submitted by
-                      </p>
-                      <p className="text-primary font-mono text-sm">
-                        {meme.submitter}
-                      </p>
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex gap-1">
+                      <span className="font-medium">Submitted by</span>
+                      <span className="text-primary">{meme.submitter}</span>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm font-medium text-white/60">
-                        Supply
-                      </p>
-                      <p className="font-mono text-sm text-white">
+                    <div className="flex gap-1">
+                      <span className="font-medium">Supply</span>
+                      <span className="text-primary">
                         {meme.tokenSupply.toLocaleString()}
-                      </p>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -211,7 +208,7 @@ export default function Home() {
                         onClick={handleVote}
                         disabled={voteAnimating}
                         size="lg"
-                        className="from-primary via-solana to-primary animate-gradient-shift shadow-primary/25 hover:shadow-primary/40 relative gap-2 overflow-hidden rounded-md bg-linear-to-r bg-size-[200%_100%] px-10 py-7 text-lg font-black text-white shadow-lg transition-shadow"
+                        className="from-primary via-solana to-primary animate-gradient-shift shadow-primary/25 hover:shadow-primary/40 relative cursor-pointer gap-2 overflow-hidden rounded-md bg-linear-to-r bg-size-[200%_100%] px-10 py-7 text-lg font-black text-white shadow-lg transition-shadow"
                       >
                         {voteAnimating ? (
                           <>
@@ -284,7 +281,7 @@ export default function Home() {
                       <Users className="h-3.5 w-3.5" />
                       {MOCK_ACTIVE_FUNDRAISE.contributors} contributors
                     </span>
-                    <span className="text-neon font-mono font-bold">
+                    <span className="text-neon font-bold">
                       {(
                         (MOCK_ACTIVE_FUNDRAISE.solRaised /
                           MOCK_ACTIVE_FUNDRAISE.solCap) *

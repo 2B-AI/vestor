@@ -247,7 +247,7 @@ export default function FundraisePage() {
                       placeholder="0.00"
                       value={solAmount}
                       onChange={(e) => setSolAmount(e.target.value)}
-                      className="bg-secondary/50 border-border h-14 pr-16 font-mono text-lg"
+                      className="bg-secondary/50 border-border h-14 pr-16 text-lg"
                       min="0"
                       step="0.1"
                       max={remainingCap}

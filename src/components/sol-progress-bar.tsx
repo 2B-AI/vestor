@@ -17,7 +17,7 @@ export function SolProgressBar({ raised, cap }: SolProgressBarProps) {
           <span className="text-foreground font-bold">{raised.toFixed(1)}</span>{" "}
           / {cap} SOL
         </span>
-        <span className="text-neon font-mono font-bold">{pct.toFixed(1)}%</span>
+        <span className="text-neon font-bold">{pct.toFixed(1)}%</span>
       </div>
       <div className="bg-secondary relative h-4 w-full overflow-hidden rounded-full">
         <motion.div

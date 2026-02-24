@@ -213,7 +213,7 @@ export default function SubmitPage() {
                         .replace(/[^A-Z]/g, ""),
                     })
                   }
-                  className="bg-secondary/50 border-border h-12 pl-7 font-mono uppercase"
+                  className="bg-secondary/50 border-border h-12 pl-7 uppercase"
                   maxLength={10}
                   required
                 />
@@ -228,7 +228,7 @@ export default function SubmitPage() {
                 Description / Pitch
               </Label>
               <span
-                className={`font-mono text-xs ${
+                className={`text-xs ${
                   charCount > 260
                     ? "text-warning"
                     : charCount > 280
@@ -266,7 +266,7 @@ export default function SubmitPage() {
               onChange={(e) =>
                 setForm({ ...form, tokenSupply: e.target.value })
               }
-              className="bg-secondary/50 border-border h-12 font-mono"
+              className="bg-secondary/50 border-border h-12"
               min="1"
               required
             />

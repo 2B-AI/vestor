@@ -29,7 +29,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="glass border-border/50 fixed top-0 right-0 left-0 z-50 border-b">
+    <header className="glass fixed top-0 right-0 left-0 z-50">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-8">
           <Link href="/" className="group flex items-center gap-2">
@@ -69,9 +69,7 @@ export function Header() {
             <div className="hidden items-center gap-2 sm:flex">
               <div className="bg-secondary border-border flex items-center gap-2 rounded-full border px-4 py-2">
                 <div className="bg-neon h-2 w-2 animate-pulse rounded-full" />
-                <span className="text-foreground font-mono text-sm">
-                  {address}
-                </span>
+                <span className="text-foreground text-sm">{address}</span>
               </div>
               <Button
                 variant="ghost"
@@ -85,7 +83,7 @@ export function Header() {
           ) : (
             <Button
               onClick={connect}
-              className="from-primary to-solana hidden gap-2 rounded-md bg-linear-to-r px-6 font-bold text-white hover:opacity-90 sm:flex"
+              className="from-primary to-solana hidden cursor-pointer gap-2 rounded-md bg-linear-to-r px-6 font-bold text-white hover:opacity-90 sm:flex"
             >
               <Wallet className="h-4 w-4" />
               Connect Wallet
@@ -140,9 +138,7 @@ export function Header() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="bg-neon h-2 w-2 animate-pulse rounded-full" />
-                      <span className="text-foreground font-mono text-sm">
-                        {address}
-                      </span>
+                      <span className="text-foreground text-sm">{address}</span>
                     </div>
                     <Button
                       variant="ghost"

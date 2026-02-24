@@ -71,7 +71,7 @@ export const MOCK_MEMES: Meme[] = [
     ticker: "$SCAT",
     description:
       "The internet's favorite cat, now on Solana. Fast, furry, and feeless. Meow to the moon! 🐱",
-    imageUrl: "/memes/solcat.svg",
+    imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 500_000_000,
     submitter: "3mPQ...kL2x",
     submittedAt: new Date(Date.now() - 7200000),
@@ -82,7 +82,7 @@ export const MOCK_MEMES: Meme[] = [
     ticker: "$BFATHER",
     description:
       "The Godfather of all bonks. An offer your portfolio can't refuse. 🔨🎬",
-    imageUrl: "/memes/bonkfather.svg",
+    imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 2_000_000_000,
     submitter: "9aBC...dE4f",
     submittedAt: new Date(Date.now() - 10800000),
@@ -93,7 +93,7 @@ export const MOCK_MEMES: Meme[] = [
     ticker: "$GIGA",
     description:
       "Average meme coin fan vs average GIGACHAD enjoyer. Built different, launched different. 💪",
-    imageUrl: "/memes/gigachad.svg",
+    imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 420_690_000,
     submitter: "5gHi...jK7m",
     submittedAt: new Date(Date.now() - 14400000),
@@ -104,7 +104,7 @@ export const MOCK_MEMES: Meme[] = [
     ticker: "$DWK",
     description:
       "He's a good boy. With a knife. Don't ask questions. Just ape. 🐕🔪",
-    imageUrl: "/memes/dogewifknife.svg",
+    imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 777_777_777,
     submitter: "2nOP...qR8s",
     submittedAt: new Date(Date.now() - 18000000),
@@ -113,7 +113,6 @@ export const MOCK_MEMES: Meme[] = [
 
 const now = new Date();
 const oneHourFromNow = new Date(now.getTime() + 3600000);
-const fortyEightHoursFromNow = new Date(now.getTime() + 48 * 3600000);
 
 export const MOCK_ACTIVE_VOTE: VotingRound = {
   id: "round-42",
@@ -203,7 +202,7 @@ export const MOCK_QUEUE_MEMES: Meme[] = [
     name: "LLAMAVERSE",
     ticker: "$LLAMA",
     description: "Llamas in the metaverse. Spitting facts and tokens. 🦙🌌",
-    imageUrl: "/memes/llamaverse.svg",
+    imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 1_500_000_000,
     submitter: "4tUV...wX1y",
     submittedAt: new Date(now.getTime() - 1800000),

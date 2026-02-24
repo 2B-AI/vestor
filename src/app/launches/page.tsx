@@ -224,7 +224,7 @@ export default function LaunchesPage() {
                         </Button>
                       )}
                       {launch.tokenAddress && (
-                        <Badge variant="outline" className="font-mono text-xs">
+                        <Badge variant="outline" className="text-xs">
                           {launch.tokenAddress}
                         </Badge>
                       )}

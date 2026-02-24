@@ -67,7 +67,7 @@ export function CountdownTimer({
         <div key={unit.label} className="flex items-center gap-2">
           <div className="flex flex-col items-center">
             <span
-              className={`${sizeClasses[size]} font-mono font-bold tracking-wider tabular-nums ${
+              className={`${sizeClasses[size]} font-bold tracking-wider tabular-nums ${
                 isUrgent ? "text-destructive animate-pulse" : "text-foreground"
               }`}
             >
@@ -81,7 +81,7 @@ export function CountdownTimer({
           </div>
           {i < 2 && (
             <span
-              className={`${sizeClasses[size]} font-mono font-bold ${
+              className={`${sizeClasses[size]} font-bold ${
                 isUrgent ? "text-destructive" : "text-muted-foreground"
               } -mt-4`}
             >
