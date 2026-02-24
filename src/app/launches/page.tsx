@@ -11,7 +11,6 @@ import {
   XCircle,
   ExternalLink,
   Vote,
-  Users,
   TrendingUp,
   Clock,
 } from "lucide-react";
