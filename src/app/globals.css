@@ -206,10 +206,12 @@
 }
 
 .bg-grid {
+  background-color: rgba(21, 21, 21, 1);
   background-image:
     linear-gradient(rgba(112, 224, 06, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(112, 224, 0, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
+  border: 1px solid rgba(35, 35, 35, 1);
 }
 
 .button-gradient {

@@ -8,23 +8,19 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { useWallet } from "@/lib/wallet-context";
+import { MOCK_ACTIVE_VOTE, MOCK_ACTIVE_FUNDRAISE } from "@/lib/mock-data";
 import {
-  MOCK_ACTIVE_VOTE,
-  MOCK_ACTIVE_FUNDRAISE,
-  MOCK_QUEUE_MEMES,
-} from "@/lib/mock-data";
-import {
-  Zap,
   Vote,
   Users,
-  TrendingUp,
   ArrowRight,
   CheckCircle2,
   Flame,
-  Trophy,
   Rocket,
   Clock,
 } from "lucide-react";
+import UpNext from "@/components/UpNext";
+import Stats from "@/components/Stats";
+import HowItWorks from "@/components/HowItWorks";
 
 export default function Home() {
   const { connected, connect } = useWallet();
@@ -238,7 +234,7 @@ export default function Home() {
           transition={{ delay: 0.4 }}
         >
           <Link href="/fundraise" className="group block">
-            <div className="glass-card rounded-2xl p-6 drop-shadow-lg drop-shadow-[rgba(112,224,0,0.2)] transition-shadow hover:shadow-[0_0_30px_rgba(20,241,149,0.2)] sm:p-8">
+            <div className="rounded-2xl bg-[rgba(21,21,21,1)] p-6 drop-shadow-lg drop-shadow-[rgba(112,224,0,0.2)] transition-shadow hover:shadow-[0_0_30px_rgba(20,241,149,0.2)] sm:p-8">
               <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-3">
                   <div className="bg-neon/10 flex h-10 w-10 items-center justify-center rounded-xl">
@@ -300,175 +296,13 @@ export default function Home() {
       </section>
 
       {/* Up Next Queue */}
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-lg">
-                <Clock className="text-primary h-4 w-4" />
-              </div>
-              <h2 className="text-2xl font-black">Up Next</h2>
-            </div>
-            <Link
-              href="/submit"
-              className="text-primary hover:text-primary/80 flex items-center gap-1 text-sm font-medium"
-            >
-              Submit a Meme <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {MOCK_QUEUE_MEMES.map((queueMeme, i) => (
-              <motion.div
-                key={queueMeme.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + i * 0.1 }}
-                className="glass-card group hover:border-primary/30 overflow-hidden rounded-xl transition-colors"
-              >
-                <div className="relative h-40 overflow-hidden">
-                  <Image
-                    src={queueMeme.imageUrl}
-                    alt={queueMeme.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  <div className="absolute top-3 right-3">
-                    <Badge
-                      variant="outline"
-                      className="border-white/10 bg-black/50 text-xs text-white backdrop-blur-sm"
-                    >
-                      #{i + 1} in queue
-                    </Badge>
-                  </div>
-                  <div className="absolute bottom-3 left-3">
-                    <p className="text-lg font-black text-white">
-                      {queueMeme.name}
-                    </p>
-                    <p className="text-xs text-white/60">{queueMeme.ticker}</p>
-                  </div>
-                </div>
-                <div className="p-3">
-                  <p className="text-muted-foreground line-clamp-2 text-xs">
-                    {queueMeme.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
+      <UpNext />
 
       {/* Stats Section */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="grid grid-cols-2 gap-4 lg:grid-cols-4"
-        >
-          {[
-            {
-              label: "Total Raised",
-              value: "1,247 SOL",
-              icon: TrendingUp,
-              color: "text-neon",
-            },
-            {
-              label: "Tokens Launched",
-              value: "18",
-              icon: Rocket,
-              color: "text-primary",
-            },
-            {
-              label: "Total Voters",
-              value: "4,892",
-              icon: Users,
-              color: "text-chart-3",
-            },
-            {
-              label: "Winning Memes",
-              value: "23",
-              icon: Trophy,
-              color: "text-warning",
-            },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="glass-card rounded-xl p-5 text-center"
-            >
-              <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
-              <p className="text-2xl font-black">{stat.value}</p>
-              <p className="text-muted-foreground text-xs font-medium">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-      </section>
+      <Stats />
 
       {/* How It Works */}
-      <section className="mx-auto max-w-7xl px-4 py-12 pb-20 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          <h2 className="mb-10 text-center text-3xl font-black">
-            How <span className="text-gradient">MemeVote</span> Works
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Submit",
-                desc: "Anyone can submit a meme coin idea for free. Add a name, ticker, image, and token supply.",
-                icon: Zap,
-              },
-              {
-                step: "02",
-                title: "Vote",
-                desc: "Community votes on memes in 1-hour rounds. 0.05 SOL per vote, 1 wallet = 1 vote.",
-                icon: Vote,
-              },
-              {
-                step: "03",
-                title: "Fund",
-                desc: "Winners enter a 48-hour fundraise. Contribute SOL toward the 85 SOL cap.",
-                icon: TrendingUp,
-              },
-              {
-                step: "04",
-                title: "Launch",
-                desc: "On cap fill, the token is auto-created and deployed on Meteora. Contributors get their tokens.",
-                icon: Rocket,
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className="glass-card group hover:border-primary/30 relative rounded-xl p-6 transition-colors"
-              >
-                <span className="absolute top-4 right-4 text-5xl font-black text-white/3">
-                  {item.step}
-                </span>
-                <div className="bg-primary/10 mb-4 flex h-10 w-10 items-center justify-center rounded-xl">
-                  <item.icon className="text-primary h-5 w-5" />
-                </div>
-                <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
+      <HowItWorks />
     </div>
   );
 }
