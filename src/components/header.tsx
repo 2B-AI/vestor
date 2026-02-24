@@ -14,6 +14,7 @@ import {
   PlusCircle,
   History,
   Github,
+  Info,
 } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,6 +24,7 @@ const NAV_LINKS = [
   { href: "/fundraise", label: "Fundraise", icon: Trophy },
   { href: "/submit", label: "Submit", icon: PlusCircle },
   { href: "/launches", label: "Launches", icon: History },
+  { href: "/about", label: "About", icon: Info },
 ];
 
 export function Header() {
