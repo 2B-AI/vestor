@@ -29,7 +29,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="glass fixed top-0 right-0 left-0 z-50">
+    <header className="header fixed top-0 right-0 left-0 z-50">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-8">
           <Link href="/" className="group flex items-center gap-2">
@@ -109,7 +109,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="glass border-border/50 overflow-hidden border-t md:hidden"
+            className="header border-border/50 overflow-hidden border-t md:hidden"
           >
             <nav className="flex flex-col gap-1 p-4">
               {NAV_LINKS.map((link) => (

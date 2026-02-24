@@ -164,7 +164,7 @@
   animation: shimmer 2s linear infinite;
 }
 
-.glass {
+.header {
   background: #09090b;
   backdrop-filter: blur(16px);
 }
