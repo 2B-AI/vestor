@@ -19,7 +19,9 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
       transition={{ duration: 0.5 }}
       className={`glass-card rounded-2xl overflow-hidden ${isLarge ? "max-w-md" : "max-w-xs"}`}
     >
-      <div className={`relative ${isLarge ? "h-80" : "h-48"} w-full overflow-hidden`}>
+      <div
+        className={`relative ${isLarge ? "h-80" : "h-48"} w-full overflow-hidden`}
+      >
         <Image
           src={meme.imageUrl}
           alt={meme.name}
@@ -27,7 +29,7 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
           className="object-cover"
           unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black text-white">{meme.name}</span>
@@ -38,10 +40,15 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
         </div>
       </div>
       <div className="p-4 space-y-3">
-        <p className="text-sm text-muted-foreground leading-relaxed">{meme.description}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {meme.description}
+        </p>
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>
-            Supply: <span className="text-foreground font-mono">{meme.tokenSupply.toLocaleString()}</span>
+            Supply:{" "}
+            <span className="text-foreground font-mono">
+              {meme.tokenSupply.toLocaleString()}
+            </span>
           </span>
           <span>
             by <span className="text-primary font-mono">{meme.submitter}</span>

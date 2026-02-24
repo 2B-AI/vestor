@@ -11,11 +11,9 @@ import { SolProgressBar } from "@/components/sol-progress-bar";
 import { useWallet } from "@/lib/wallet-context";
 import { MOCK_ACTIVE_FUNDRAISE } from "@/lib/mock-data";
 import {
-  Rocket,
   Users,
   Clock,
   Shield,
-  ArrowRight,
   CheckCircle2,
   Coins,
   PieChart,
@@ -61,7 +59,10 @@ export default function FundraisePage() {
           </span>
           Fundraise Active
         </Badge>
-        <Badge variant="outline" className="gap-1.5 px-3 py-1 text-muted-foreground">
+        <Badge
+          variant="outline"
+          className="gap-1.5 px-3 py-1 text-muted-foreground"
+        >
           <Users className="h-3 w-3" />
           {fund.contributors} contributors
         </Badge>
@@ -83,15 +84,19 @@ export default function FundraisePage() {
                 className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <h1 className="text-4xl font-black text-white">{meme.name}</h1>
+                  <h1 className="text-4xl font-black text-white">
+                    {meme.name}
+                  </h1>
                   <span className="rounded-full bg-primary/30 backdrop-blur-sm px-4 py-1 text-base font-bold text-primary">
                     {meme.ticker}
                   </span>
                 </div>
-                <p className="text-white/70 text-sm max-w-lg">{meme.description}</p>
+                <p className="text-white/70 text-sm max-w-lg">
+                  {meme.description}
+                </p>
               </div>
             </div>
 
@@ -111,7 +116,9 @@ export default function FundraisePage() {
                   <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1">
                     Remaining Cap
                   </p>
-                  <p className="text-2xl font-black text-neon">{remainingCap.toFixed(1)} SOL</p>
+                  <p className="text-2xl font-black text-neon">
+                    {remainingCap.toFixed(1)} SOL
+                  </p>
                 </div>
               </div>
             </div>
@@ -125,17 +132,37 @@ export default function FundraisePage() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: "Meteora Liquidity", amount: "70 SOL", pct: "82%", color: "bg-neon" },
-                { label: "Platform Fee", amount: "10 SOL", pct: "12%", color: "bg-primary" },
-                { label: "Submitter Reward", amount: "5 SOL", pct: "6%", color: "bg-warning" },
+                {
+                  label: "Meteora Liquidity",
+                  amount: "70 SOL",
+                  pct: "82%",
+                  color: "bg-neon",
+                },
+                {
+                  label: "Platform Fee",
+                  amount: "10 SOL",
+                  pct: "12%",
+                  color: "bg-primary",
+                },
+                {
+                  label: "Submitter Reward",
+                  amount: "5 SOL",
+                  pct: "6%",
+                  color: "bg-warning",
+                },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl bg-secondary/50 p-4">
+                <div
+                  key={item.label}
+                  className="rounded-xl bg-secondary/50 p-4"
+                >
                   <div className="flex items-center gap-2 mb-2">
                     <div className={`h-2.5 w-2.5 rounded-full ${item.color}`} />
                     <span className="text-sm font-medium">{item.label}</span>
                   </div>
                   <p className="text-xl font-black">{item.amount}</p>
-                  <p className="text-xs text-muted-foreground">{item.pct} of raise</p>
+                  <p className="text-xs text-muted-foreground">
+                    {item.pct} of raise
+                  </p>
                 </div>
               ))}
             </div>
@@ -149,16 +176,29 @@ export default function FundraisePage() {
             </h3>
             <div className="space-y-3">
               {[
-                { label: "IPO Contributors", pct: "80%", desc: "Proportional to SOL contributed" },
-                { label: "Liquidity Pool", pct: "19.5%", desc: "Deposited into Meteora with SOL" },
+                {
+                  label: "IPO Contributors",
+                  pct: "80%",
+                  desc: "Proportional to SOL contributed",
+                },
+                {
+                  label: "Liquidity Pool",
+                  pct: "19.5%",
+                  desc: "Deposited into Meteora with SOL",
+                },
                 { label: "Platform", pct: "0.5%", desc: "Platform allocation" },
               ].map((item) => (
-                <div key={item.label} className="flex items-center justify-between rounded-lg bg-secondary/30 px-4 py-3">
+                <div
+                  key={item.label}
+                  className="flex items-center justify-between rounded-lg bg-secondary/30 px-4 py-3"
+                >
                   <div>
                     <p className="text-sm font-medium">{item.label}</p>
                     <p className="text-xs text-muted-foreground">{item.desc}</p>
                   </div>
-                  <span className="text-lg font-black text-gradient">{item.pct}</span>
+                  <span className="text-lg font-black text-gradient">
+                    {item.pct}
+                  </span>
                 </div>
               ))}
             </div>
@@ -187,15 +227,20 @@ export default function FundraisePage() {
                 className="rounded-xl bg-neon/10 border border-neon/20 p-6 text-center space-y-3"
               >
                 <CheckCircle2 className="h-12 w-12 text-neon mx-auto" />
-                <p className="text-lg font-bold text-neon">Contribution Successful!</p>
+                <p className="text-lg font-bold text-neon">
+                  Contribution Successful!
+                </p>
                 <p className="text-sm text-muted-foreground">
-                  You contributed {solAmount} SOL. Your tokens will be distributed when the cap is reached.
+                  You contributed {solAmount} SOL. Your tokens will be
+                  distributed when the cap is reached.
                 </p>
               </motion.div>
             ) : (
               <>
                 <div className="space-y-3">
-                  <label className="text-sm font-medium text-muted-foreground">Amount (SOL)</label>
+                  <label className="text-sm font-medium text-muted-foreground">
+                    Amount (SOL)
+                  </label>
                   <div className="relative">
                     <Input
                       type="number"
@@ -215,7 +260,9 @@ export default function FundraisePage() {
                     {[1, 5, 10, 25].map((amt) => (
                       <button
                         key={amt}
-                        onClick={() => setSolAmount(String(Math.min(amt, remainingCap)))}
+                        onClick={() =>
+                          setSolAmount(String(Math.min(amt, remainingCap)))
+                        }
                         className="flex-1 rounded-lg bg-secondary/50 py-2 text-xs font-bold text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                       >
                         {amt} SOL
@@ -234,11 +281,19 @@ export default function FundraisePage() {
                       Estimated Allocation
                     </p>
                     <p className="text-lg font-bold">
-                      ~{((parseFloat(solAmount) / fund.solCap) * meme.tokenSupply * 0.8).toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                      <span className="text-sm text-primary ml-1">{meme.ticker}</span>
+                      ~
+                      {(
+                        (parseFloat(solAmount) / fund.solCap) *
+                        meme.tokenSupply *
+                        0.8
+                      ).toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                      <span className="text-sm text-primary ml-1">
+                        {meme.ticker}
+                      </span>
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {((parseFloat(solAmount) / fund.solCap) * 80).toFixed(2)}% of contributor supply
+                      {((parseFloat(solAmount) / fund.solCap) * 80).toFixed(2)}%
+                      of contributor supply
                     </p>
                   </motion.div>
                 )}
@@ -247,7 +302,7 @@ export default function FundraisePage() {
                   onClick={handleContribute}
                   disabled={contributing}
                   size="lg"
-                  className="w-full bg-gradient-to-r from-neon to-primary hover:opacity-90 text-black font-black text-base rounded-xl py-6 gap-2"
+                  className="w-full bg-linear-to-r from-neon to-primary hover:opacity-90 text-black font-black text-base rounded-xl py-6 gap-2"
                 >
                   {contributing ? (
                     <>
@@ -272,15 +327,17 @@ export default function FundraisePage() {
             {/* Safety Info */}
             <div className="space-y-3 pt-2">
               <div className="flex items-start gap-2 text-xs text-muted-foreground">
-                <Shield className="h-4 w-4 text-neon flex-shrink-0 mt-0.5" />
+                <Shield className="h-4 w-4 text-neon shrink-0 mt-0.5" />
                 <span>Funds held in on-chain escrow smart contract</span>
               </div>
               <div className="flex items-start gap-2 text-xs text-muted-foreground">
-                <Clock className="h-4 w-4 text-warning flex-shrink-0 mt-0.5" />
-                <span>Auto-refund if 85 SOL cap not reached within 48 hours</span>
+                <Clock className="h-4 w-4 text-warning shrink-0 mt-0.5" />
+                <span>
+                  Auto-refund if 85 SOL cap not reached within 48 hours
+                </span>
               </div>
               <div className="flex items-start gap-2 text-xs text-muted-foreground">
-                <Info className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                <Info className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                 <span>No minimum contribution — any amount accepted</span>
               </div>
             </div>

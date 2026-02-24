@@ -40,7 +40,10 @@ const statusConfig = {
 export default function LaunchesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
-      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <div className="flex items-center gap-3 mb-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
             <Trophy className="h-5 w-5 text-primary" />
@@ -62,23 +65,31 @@ export default function LaunchesPage() {
         {[
           {
             label: "Launched",
-            count: MOCK_PAST_LAUNCHES.filter((l) => l.status === "launched").length,
+            count: MOCK_PAST_LAUNCHES.filter((l) => l.status === "launched")
+              .length,
             color: "text-neon",
           },
           {
             label: "Funded",
-            count: MOCK_PAST_LAUNCHES.filter((l) => l.status === "funded").length,
+            count: MOCK_PAST_LAUNCHES.filter((l) => l.status === "funded")
+              .length,
             color: "text-primary",
           },
           {
             label: "Failed",
-            count: MOCK_PAST_LAUNCHES.filter((l) => l.status === "failed").length,
+            count: MOCK_PAST_LAUNCHES.filter((l) => l.status === "failed")
+              .length,
             color: "text-destructive",
           },
         ].map((stat) => (
-          <div key={stat.label} className="glass-card rounded-xl p-4 text-center">
+          <div
+            key={stat.label}
+            className="glass-card rounded-xl p-4 text-center"
+          >
             <p className={`text-2xl font-black ${stat.color}`}>{stat.count}</p>
-            <p className="text-xs text-muted-foreground font-medium">{stat.label}</p>
+            <p className="text-xs text-muted-foreground font-medium">
+              {stat.label}
+            </p>
           </div>
         ))}
       </motion.div>
@@ -100,7 +111,7 @@ export default function LaunchesPage() {
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Image */}
-                <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0">
+                <div className="relative w-full sm:w-48 h-48 sm:h-auto shrink-0">
                   <Image
                     src={launch.meme.imageUrl}
                     alt={launch.meme.name}
@@ -108,8 +119,8 @@ export default function LaunchesPage() {
                     className="object-cover"
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/40 hidden sm:block" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent sm:hidden" />
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/40 hidden sm:block" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent sm:hidden" />
                 </div>
 
                 {/* Info */}
@@ -117,8 +128,12 @@ export default function LaunchesPage() {
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-xl font-black">{launch.meme.name}</h3>
-                        <span className="text-sm font-bold text-primary">{launch.meme.ticker}</span>
+                        <h3 className="text-xl font-black">
+                          {launch.meme.name}
+                        </h3>
+                        <span className="text-sm font-bold text-primary">
+                          {launch.meme.ticker}
+                        </span>
                       </div>
                       <p className="text-sm text-muted-foreground line-clamp-1">
                         {launch.meme.description}
@@ -135,14 +150,19 @@ export default function LaunchesPage() {
                     <div className="flex items-center gap-1.5 text-muted-foreground">
                       <Vote className="h-3.5 w-3.5" />
                       <span>
-                        <span className="text-foreground font-bold">{launch.voteCount}</span> votes
+                        <span className="text-foreground font-bold">
+                          {launch.voteCount}
+                        </span>{" "}
+                        votes
                       </span>
                     </div>
                     <div className="flex items-center gap-1.5 text-muted-foreground">
                       <TrendingUp className="h-3.5 w-3.5" />
                       <span>
-                        <span className="text-foreground font-bold">{launch.solRaised}</span> /{" "}
-                        {launch.solCap} SOL
+                        <span className="text-foreground font-bold">
+                          {launch.solRaised}
+                        </span>{" "}
+                        / {launch.solCap} SOL
                       </span>
                     </div>
                     {launch.launchedAt && (
@@ -177,7 +197,11 @@ export default function LaunchesPage() {
                           className="rounded-full text-xs gap-1.5 h-8"
                           asChild
                         >
-                          <a href={launch.solscanUrl} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={launch.solscanUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <ExternalLink className="h-3 w-3" />
                             Solscan
                           </a>
@@ -190,7 +214,11 @@ export default function LaunchesPage() {
                           className="rounded-full text-xs gap-1.5 h-8"
                           asChild
                         >
-                          <a href={launch.meteoraPoolUrl} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={launch.meteoraPoolUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <ExternalLink className="h-3 w-3" />
                             Meteora Pool
                           </a>

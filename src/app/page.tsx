@@ -8,7 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { useWallet } from "@/lib/wallet-context";
-import { MOCK_ACTIVE_VOTE, MOCK_ACTIVE_FUNDRAISE, MOCK_QUEUE_MEMES } from "@/lib/mock-data";
+import {
+  MOCK_ACTIVE_VOTE,
+  MOCK_ACTIVE_FUNDRAISE,
+  MOCK_QUEUE_MEMES,
+} from "@/lib/mock-data";
 import {
   Zap,
   Vote,
@@ -56,7 +60,7 @@ export default function Home() {
     <div className="relative">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-primary/5 via-transparent to-transparent" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-8">
           {/* Status Bar */}
           <motion.div
@@ -71,11 +75,17 @@ export default function Home() {
               </span>
               Round #{MOCK_ACTIVE_VOTE.id.split("-")[1]} Live
             </Badge>
-            <Badge variant="outline" className="gap-1.5 px-3 py-1 text-muted-foreground">
+            <Badge
+              variant="outline"
+              className="gap-1.5 px-3 py-1 text-muted-foreground"
+            >
               <Users className="h-3 w-3" />
               {voteCount} votes cast
             </Badge>
-            <Badge variant="outline" className="gap-1.5 px-3 py-1 text-muted-foreground">
+            <Badge
+              variant="outline"
+              className="gap-1.5 px-3 py-1 text-muted-foreground"
+            >
               <Clock className="h-3 w-3" />
               1hr rounds
             </Badge>
@@ -88,7 +98,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="relative w-full max-w-md flex-shrink-0"
+              className="relative w-full max-w-md shrink-0"
             >
               <div className="relative aspect-square rounded-3xl overflow-hidden purple-glow">
                 <Image
@@ -98,7 +108,7 @@ export default function Home() {
                   className="object-cover"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-black/50 backdrop-blur-sm text-white border-white/10 gap-1">
                     <Flame className="h-3 w-3 text-orange-400" />
@@ -108,11 +118,17 @@ export default function Home() {
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex items-end justify-between">
                     <div>
-                      <p className="text-sm text-white/60 font-medium">Submitted by</p>
-                      <p className="text-sm font-mono text-primary">{meme.submitter}</p>
+                      <p className="text-sm text-white/60 font-medium">
+                        Submitted by
+                      </p>
+                      <p className="text-sm font-mono text-primary">
+                        {meme.submitter}
+                      </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm text-white/60 font-medium">Supply</p>
+                      <p className="text-sm text-white/60 font-medium">
+                        Supply
+                      </p>
                       <p className="text-sm font-mono text-white">
                         {meme.tokenSupply.toLocaleString()}
                       </p>
@@ -154,13 +170,19 @@ export default function Home() {
               {/* Vote Count */}
               <div className="flex items-center gap-8 justify-center lg:justify-start">
                 <div>
-                  <p className="text-4xl font-black text-gradient tabular-nums">{voteCount}</p>
-                  <p className="text-sm text-muted-foreground font-medium">Total Votes</p>
+                  <p className="text-4xl font-black text-gradient tabular-nums">
+                    {voteCount}
+                  </p>
+                  <p className="text-sm text-muted-foreground font-medium">
+                    Total Votes
+                  </p>
                 </div>
                 <div className="h-12 w-px bg-border" />
                 <div>
                   <p className="text-4xl font-black text-foreground">0.05</p>
-                  <p className="text-sm text-muted-foreground font-medium">SOL per vote</p>
+                  <p className="text-sm text-muted-foreground font-medium">
+                    SOL per vote
+                  </p>
                 </div>
               </div>
 
@@ -175,32 +197,42 @@ export default function Home() {
                       className="flex items-center gap-2 rounded-full bg-neon/10 border border-neon/20 px-8 py-4"
                     >
                       <CheckCircle2 className="h-5 w-5 text-neon" />
-                      <span className="text-neon font-bold">Vote Recorded!</span>
+                      <span className="text-neon font-bold">
+                        Vote Recorded!
+                      </span>
                     </motion.div>
                   ) : (
-                    <motion.div key="vote" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <motion.div
+                      key="vote"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
                       <Button
                         onClick={handleVote}
                         disabled={voteAnimating}
                         size="lg"
-                        className="relative overflow-hidden bg-gradient-to-r from-primary via-solana to-primary bg-[length:200%_100%] animate-gradient-shift text-white font-black text-lg rounded-full px-10 py-7 gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow"
+                        className="relative overflow-hidden bg-linear-to-r from-primary via-solana to-primary bg-size-[200%_100%] animate-gradient-shift text-white font-black text-lg rounded-md px-10 py-7 gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow"
                       >
                         {voteAnimating ? (
                           <>
-                            <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-md animate-spin" />
                             Confirming...
                           </>
                         ) : (
                           <>
                             <Vote className="h-5 w-5" />
-                            {connected ? "Vote Now — 0.05 SOL" : "Connect Wallet to Vote"}
+                            {connected
+                              ? "Vote Now — 0.05 SOL"
+                              : "Connect Wallet to Vote"}
                           </>
                         )}
                       </Button>
                     </motion.div>
                   )}
                 </AnimatePresence>
-                <p className="text-xs text-muted-foreground">1 wallet = 1 vote per round</p>
+                <p className="text-xs text-muted-foreground">
+                  1 wallet = 1 vote per round
+                </p>
               </div>
             </motion.div>
           </div>
@@ -253,14 +285,21 @@ export default function Home() {
                       {MOCK_ACTIVE_FUNDRAISE.contributors} contributors
                     </span>
                     <span className="font-mono text-neon font-bold">
-                      {((MOCK_ACTIVE_FUNDRAISE.solRaised / MOCK_ACTIVE_FUNDRAISE.solCap) * 100).toFixed(1)}%
+                      {(
+                        (MOCK_ACTIVE_FUNDRAISE.solRaised /
+                          MOCK_ACTIVE_FUNDRAISE.solCap) *
+                        100
+                      ).toFixed(1)}
+                      %
                     </span>
                   </div>
                 </div>
                 <div className="relative h-3 w-full overflow-hidden rounded-full bg-secondary">
                   <motion.div
                     className="absolute inset-y-0 left-0 rounded-full"
-                    style={{ background: "linear-gradient(90deg, #9945ff, #14f195)" }}
+                    style={{
+                      background: "linear-gradient(90deg, #9945ff, #14f195)",
+                    }}
                     initial={{ width: 0 }}
                     animate={{
                       width: `${(MOCK_ACTIVE_FUNDRAISE.solRaised / MOCK_ACTIVE_FUNDRAISE.solCap) * 100}%`,
@@ -313,14 +352,19 @@ export default function Home() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                   <div className="absolute top-3 right-3">
-                    <Badge variant="outline" className="bg-black/50 backdrop-blur-sm text-white border-white/10 text-xs">
+                    <Badge
+                      variant="outline"
+                      className="bg-black/50 backdrop-blur-sm text-white border-white/10 text-xs"
+                    >
                       #{i + 1} in queue
                     </Badge>
                   </div>
                   <div className="absolute bottom-3 left-3">
-                    <p className="text-lg font-black text-white">{queueMeme.name}</p>
+                    <p className="text-lg font-black text-white">
+                      {queueMeme.name}
+                    </p>
                     <p className="text-xs text-white/60">{queueMeme.ticker}</p>
                   </div>
                 </div>
@@ -344,15 +388,40 @@ export default function Home() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {[
-            { label: "Total Raised", value: "1,247 SOL", icon: TrendingUp, color: "text-neon" },
-            { label: "Tokens Launched", value: "18", icon: Rocket, color: "text-primary" },
-            { label: "Total Voters", value: "4,892", icon: Users, color: "text-chart-3" },
-            { label: "Winning Memes", value: "23", icon: Trophy, color: "text-warning" },
+            {
+              label: "Total Raised",
+              value: "1,247 SOL",
+              icon: TrendingUp,
+              color: "text-neon",
+            },
+            {
+              label: "Tokens Launched",
+              value: "18",
+              icon: Rocket,
+              color: "text-primary",
+            },
+            {
+              label: "Total Voters",
+              value: "4,892",
+              icon: Users,
+              color: "text-chart-3",
+            },
+            {
+              label: "Winning Memes",
+              value: "23",
+              icon: Trophy,
+              color: "text-warning",
+            },
           ].map((stat) => (
-            <div key={stat.label} className="glass-card rounded-xl p-5 text-center">
+            <div
+              key={stat.label}
+              className="glass-card rounded-xl p-5 text-center"
+            >
               <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
               <p className="text-2xl font-black">{stat.value}</p>
-              <p className="text-xs text-muted-foreground font-medium">{stat.label}</p>
+              <p className="text-xs text-muted-foreground font-medium">
+                {stat.label}
+              </p>
             </div>
           ))}
         </motion.div>
@@ -394,16 +463,21 @@ export default function Home() {
                 desc: "On cap fill, the token is auto-created and deployed on Meteora. Contributors get their tokens.",
                 icon: Rocket,
               },
-            ].map((item, i) => (
-              <div key={item.step} className="glass-card rounded-xl p-6 relative group hover:border-primary/30 transition-colors">
-                <span className="absolute top-4 right-4 text-5xl font-black text-white/[0.03]">
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="glass-card rounded-xl p-6 relative group hover:border-primary/30 transition-colors"
+              >
+                <span className="absolute top-4 right-4 text-5xl font-black text-white/3">
                   {item.step}
                 </span>
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 mb-4">
                   <item.icon className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>

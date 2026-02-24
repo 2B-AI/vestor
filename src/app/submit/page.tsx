@@ -59,7 +59,10 @@ export default function SubmitPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10">
-      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <div className="flex items-center gap-3 mb-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
             <PlusCircle className="h-5 w-5 text-primary" />
@@ -67,7 +70,8 @@ export default function SubmitPage() {
           <h1 className="text-3xl font-black">Submit a Meme</h1>
         </div>
         <p className="text-muted-foreground mb-8">
-          Got the next big meme coin idea? Submit it for free and let the community decide.
+          Got the next big meme coin idea? Submit it for free and let the
+          community decide.
         </p>
       </motion.div>
 
@@ -82,18 +86,30 @@ export default function SubmitPage() {
           </div>
           <h2 className="text-2xl font-black">Meme Submitted!</h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Your meme <span className="text-foreground font-bold">{form.name}</span> ({form.ticker}) is now in the queue.
-            You&apos;ll be notified when it enters a voting round.
+            Your meme{" "}
+            <span className="text-foreground font-bold">{form.name}</span> (
+            {form.ticker}) is now in the queue. You&apos;ll be notified when it
+            enters a voting round.
           </p>
           <div className="glass-card rounded-xl p-4 inline-block">
-            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">Estimated Slot</p>
-            <p className="text-lg font-bold text-primary">~2-3 rounds from now</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+              Estimated Slot
+            </p>
+            <p className="text-lg font-bold text-primary">
+              ~2-3 rounds from now
+            </p>
           </div>
           <div className="pt-4">
             <Button
               onClick={() => {
                 setSubmitted(false);
-                setForm({ name: "", ticker: "", description: "", tokenSupply: "", image: null });
+                setForm({
+                  name: "",
+                  ticker: "",
+                  description: "",
+                  tokenSupply: "",
+                  image: null,
+                });
                 setImagePreview(null);
               }}
               variant="outline"
@@ -131,7 +147,9 @@ export default function SubmitPage() {
                     className="w-full h-full object-cover rounded-xl"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded-xl">
-                    <p className="text-white text-sm font-medium">Click to change</p>
+                    <p className="text-white text-sm font-medium">
+                      Click to change
+                    </p>
                   </div>
                 </div>
               ) : (
@@ -142,8 +160,12 @@ export default function SubmitPage() {
                     className="w-full max-w-[200px] h-auto opacity-60"
                   />
                   <div className="text-center">
-                    <p className="text-sm font-medium">Drop your meme here or click to upload</p>
-                    <p className="text-xs text-muted-foreground mt-1">PNG, JPG, GIF up to 5MB</p>
+                    <p className="text-sm font-medium">
+                      Drop your meme here or click to upload
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      PNG, JPG, GIF up to 5MB
+                    </p>
                   </div>
                 </div>
               )}
@@ -184,7 +206,12 @@ export default function SubmitPage() {
                   placeholder="e.g. PWH"
                   value={form.ticker}
                   onChange={(e) =>
-                    setForm({ ...form, ticker: e.target.value.toUpperCase().replace(/[^A-Z]/g, "") })
+                    setForm({
+                      ...form,
+                      ticker: e.target.value
+                        .toUpperCase()
+                        .replace(/[^A-Z]/g, ""),
+                    })
                   }
                   className="h-12 bg-secondary/50 border-border pl-7 uppercase font-mono"
                   maxLength={10}
@@ -202,7 +229,11 @@ export default function SubmitPage() {
               </Label>
               <span
                 className={`text-xs font-mono ${
-                  charCount > 260 ? "text-warning" : charCount > 280 ? "text-destructive" : "text-muted-foreground"
+                  charCount > 260
+                    ? "text-warning"
+                    : charCount > 280
+                      ? "text-destructive"
+                      : "text-muted-foreground"
                 }`}
               >
                 {charCount}/280
@@ -232,7 +263,9 @@ export default function SubmitPage() {
               type="number"
               placeholder="e.g. 1000000000"
               value={form.tokenSupply}
-              onChange={(e) => setForm({ ...form, tokenSupply: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, tokenSupply: e.target.value })
+              }
               className="h-12 bg-secondary/50 border-border font-mono"
               min="1"
               required
@@ -247,7 +280,9 @@ export default function SubmitPage() {
                 <button
                   key={preset.label}
                   type="button"
-                  onClick={() => setForm({ ...form, tokenSupply: preset.value })}
+                  onClick={() =>
+                    setForm({ ...form, tokenSupply: preset.value })
+                  }
                   className="rounded-lg bg-secondary/50 px-3 py-1.5 text-xs font-bold text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                 >
                   {preset.label}
@@ -258,14 +293,17 @@ export default function SubmitPage() {
 
           {/* Info */}
           <div className="rounded-xl bg-primary/5 border border-primary/10 p-4 flex items-start gap-3">
-            <Info className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+            <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground space-y-1">
               <p>
-                Submission is <span className="text-foreground font-bold">free</span>. Your meme will enter the queue
-                and be picked for the next available voting slot.
+                Submission is{" "}
+                <span className="text-foreground font-bold">free</span>. Your
+                meme will enter the queue and be picked for the next available
+                voting slot.
               </p>
               <p>
-                If your meme doesn&apos;t win, it can be resubmitted in a future round by anyone.
+                If your meme doesn&apos;t win, it can be resubmitted in a future
+                round by anyone.
               </p>
             </div>
           </div>
@@ -275,7 +313,7 @@ export default function SubmitPage() {
             type="submit"
             disabled={submitting}
             size="lg"
-            className="w-full bg-gradient-to-r from-primary to-solana hover:opacity-90 text-white font-black text-base rounded-xl py-6 gap-2"
+            className="w-full bg-linear-to-r from-primary to-solana hover:opacity-90 text-white font-black text-base rounded-xl py-6 gap-2"
           >
             {submitting ? (
               <>
