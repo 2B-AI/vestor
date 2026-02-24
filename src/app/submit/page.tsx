@@ -17,6 +17,9 @@ import {
   Sparkles,
   Info,
   Zap,
+  Twitter,
+  Github,
+  Instagram,
 } from "lucide-react";
 
 export default function SubmitPage() {
@@ -29,6 +32,9 @@ export default function SubmitPage() {
     description: "",
     tokenSupply: "",
     image: null as File | null,
+    twitterHandle: "",
+    githubHandle: "",
+    instagramHandle: "",
   });
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
@@ -109,6 +115,9 @@ export default function SubmitPage() {
                   description: "",
                   tokenSupply: "",
                   image: null,
+                  twitterHandle: "",
+                  githubHandle: "",
+                  instagramHandle: "",
                 });
                 setImagePreview(null);
               }}
@@ -288,6 +297,92 @@ export default function SubmitPage() {
                   {preset.label}
                 </button>
               ))}
+            </div>
+          </div>
+
+          {/* Social Media Handles (Optional) */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Label className="text-sm font-medium">
+                Social Media Handles
+              </Label>
+              <span className="text-muted-foreground text-xs">(Optional)</span>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {/* Twitter Handle */}
+              <div className="space-y-2">
+                <Label
+                  htmlFor="twitter"
+                  className="text-muted-foreground text-xs font-medium"
+                >
+                  Twitter/X Handle
+                </Label>
+                <div className="relative">
+                  <Twitter className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+                  <Input
+                    id="twitter"
+                    placeholder="@username"
+                    value={form.twitterHandle}
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (value && !value.startsWith("@")) {
+                        value = "@" + value;
+                      }
+                      setForm({ ...form, twitterHandle: value });
+                    }}
+                    className="bg-secondary/50 border-border h-12 pl-10"
+                  />
+                </div>
+              </div>
+
+              {/* GitHub Handle */}
+              <div className="space-y-2">
+                <Label
+                  htmlFor="github"
+                  className="text-muted-foreground text-xs font-medium"
+                >
+                  GitHub Username
+                </Label>
+                <div className="relative">
+                  <Github className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+                  <Input
+                    id="github"
+                    placeholder="username"
+                    value={form.githubHandle}
+                    onChange={(e) =>
+                      setForm({ ...form, githubHandle: e.target.value })
+                    }
+                    className="bg-secondary/50 border-border h-12 pl-10"
+                  />
+                </div>
+              </div>
+
+              {/* Instagram Handle */}
+              <div className="space-y-2">
+                <Label
+                  htmlFor="instagram"
+                  className="text-muted-foreground text-xs font-medium"
+                >
+                  Instagram Handle
+                </Label>
+                <div className="relative">
+                  <Instagram className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+                  <Input
+                    id="instagram"
+                    placeholder="@username"
+                    value={form.instagramHandle}
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (value && !value.startsWith("@")) {
+                        value = "@" + value;
+                      }
+                      setForm({ ...form, instagramHandle: value });
+                    }}
+                    className="bg-secondary/50 border-border h-12 pl-10"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
