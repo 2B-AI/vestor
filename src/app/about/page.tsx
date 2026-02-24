@@ -37,14 +37,17 @@ export default function About() {
 
             <h1 className="mb-6 text-5xl font-extrabold sm:text-6xl">
               Community-Driven
-              <span className="text-gradient block">Meme Coin Launchpad</span>
+              <span className="text-gradient font-orbitron block">
+                Meme Coin Launchpad
+              </span>
             </h1>
 
             <p className="text-muted-foreground mx-auto max-w-3xl text-xl leading-relaxed">
-              MemeVote is the first democratic meme coin launchpad on Solana
-              where the community decides which tokens get funded and launched.
-              No more rug pulls, no more failed launches — only community-vetted
-              winners.
+              MemeVote operates like &quot;American Idol for meme coins&quot; —
+              the community submits, votes on, and funds meme coin launches on
+              Solana. Each 1-hour voting round determines which meme gets
+              funded, with automatic token creation and Meteora liquidity pool
+              seeding.
             </p>
           </motion.div>
         </div>
@@ -58,10 +61,12 @@ export default function About() {
           transition={{ delay: 0.2 }}
           className="mb-12 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold">How MemeVote Works</h2>
+          <h2 className="mb-4 text-3xl font-bold">
+            How <span className="text-gradient font-orbitron">MemeVote</span>{" "}
+            Works
+          </h2>
           <p className="text-muted-foreground text-lg">
-            A simple, transparent process that puts the power in the
-            community&apos;s hands
+            A fully on-chain, transparent process with automatic execution
           </p>
         </motion.div>
 
@@ -71,23 +76,23 @@ export default function About() {
               icon: Vote,
               title: "Submit & Vote",
               description:
-                "Community members submit meme coin ideas and vote on their favorites using SOL. Each wallet gets one vote per round.",
+                "Submit memes for free, then vote with 0.05 SOL. Each 1-hour round features one meme. One wallet = one vote maximum.",
               color: "text-primary",
               bgColor: "bg-primary/10",
             },
             {
               icon: Trophy,
-              title: "Winner Selection",
+              title: "Fundraise Phase",
               description:
-                "The meme with the most votes wins the round and moves to the fundraising phase. Transparent and democratic.",
+                "Winners enter a 48-hour fundraising window. Contributors send SOL toward the 85 SOL cap to fund the token launch.",
               color: "text-neon",
               bgColor: "bg-neon/10",
             },
             {
               icon: Rocket,
-              title: "Launch & Distribute",
+              title: "Auto-Launch",
               description:
-                "Once funding goals are met, the token launches on Solana. Contributors receive their share of the token supply.",
+                "At 85 SOL, smart contracts automatically create the token, seed Meteora liquidity, and distribute tokens to contributors.",
               color: "text-solana",
               bgColor: "bg-solana/10",
             },
@@ -121,21 +126,23 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <h2 className="mb-6 text-3xl font-bold">Our Mission</h2>
+            <h2 className="mb-6 text-3xl font-bold">Why MemeVote?</h2>
             <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
               <p>
-                We believe the meme coin space is broken. Too many projects
-                launch without community input, leading to failed tokens and
-                lost funds.
+                Traditional meme coin launches are plagued by rug pulls, failed
+                projects, and lack of community input. Most tokens launch
+                without any validation or community backing.
               </p>
               <p>
-                MemeVote fixes this by putting the community first. Every token
-                that launches has been democratically chosen and funded by real
-                people who believe in its potential.
+                MemeVote solves this with a democratic, on-chain process. Every
+                token that launches has been voted on by the community and
+                funded by real believers. No more gambling on random launches.
               </p>
               <p>
-                Our platform creates a sustainable ecosystem where creators,
-                voters, and contributors all benefit from successful launches.
+                Our automated smart contracts eliminate human error and ensure
+                fair distribution. When a meme reaches 85 SOL, everything
+                happens automatically — token creation, liquidity seeding, and
+                contributor rewards.
               </p>
             </div>
           </motion.div>
@@ -151,21 +158,21 @@ export default function About() {
             {[
               {
                 icon: Shield,
-                title: "Transparency",
+                title: "Fully On-Chain",
                 description:
-                  "All votes, funding, and launches are fully transparent on-chain.",
+                  "All voting, funding, and token launches happen on Solana smart contracts. No centralized control or manual intervention.",
               },
               {
                 icon: Users,
-                title: "Community First",
+                title: "Democratic Process",
                 description:
-                  "The community decides everything — from which tokens launch to how funds are distributed.",
+                  "One wallet = one vote. Community decides which memes get funded through transparent 1-hour voting rounds.",
               },
               {
                 icon: Target,
-                title: "Quality Over Quantity",
+                title: "Automatic Execution",
                 description:
-                  "We focus on launching fewer, higher-quality tokens that the community truly wants.",
+                  "Smart contracts handle everything — token creation, Meteora liquidity pools, and proportional token distribution.",
               },
             ].map((value) => (
               <div key={value.title} className="flex gap-4">
@@ -182,6 +189,104 @@ export default function About() {
         </div>
       </section>
 
+      {/* Economics Section */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mb-12 text-center"
+        >
+          <h2 className="mb-4 text-3xl font-bold">Platform Economics</h2>
+          <p className="text-muted-foreground text-lg">
+            Transparent, automated distribution with aligned incentives
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* SOL Distribution */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 }}
+            className="rounded-2xl bg-[rgba(21,21,21,1)] p-6"
+          >
+            <h3 className="mb-4 text-xl font-bold">
+              85 SOL Raise Distribution
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">
+                  Meteora Liquidity Pool
+                </span>
+                <span className="font-bold">70 SOL (82%)</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Platform Fee</span>
+                <span className="font-bold">10 SOL (12%)</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">
+                  Meme Submitter Reward
+                </span>
+                <span className="font-bold">5 SOL (6%)</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Token Distribution */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8 }}
+            className="rounded-2xl bg-[rgba(21,21,21,1)] p-6"
+          >
+            <h3 className="mb-4 text-xl font-bold">
+              Token Supply Distribution
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">
+                  Contributors (Proportional)
+                </span>
+                <span className="font-bold">~80%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Liquidity Pool</span>
+                <span className="font-bold">~19.5%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Platform</span>
+                <span className="font-bold">0.5%</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Key Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="mt-8 grid gap-6 sm:grid-cols-2"
+        >
+          <div className="bg-primary/5 border-primary/10 rounded-xl border p-4">
+            <h4 className="mb-2 font-bold">Automatic Refunds</h4>
+            <p className="text-muted-foreground text-sm">
+              If 85 SOL isn&apos;t reached in 48 hours, all contributors get
+              automatic refunds via smart contract.
+            </p>
+          </div>
+          <div className="bg-neon/5 border-neon/10 rounded-xl border p-4">
+            <h4 className="mb-2 font-bold">Anti-Manipulation</h4>
+            <p className="text-muted-foreground text-sm">
+              One wallet = one vote maximum, enforced at smart contract level.
+              0.05 SOL voting cost deters spam.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Stats Section */}
       <Stats />
 
@@ -194,10 +299,11 @@ export default function About() {
           className="text-center"
         >
           <h2 className="mb-6 text-3xl font-bold">
-            Ready to Join the Community?
+            Ready to Shape the Future of Meme Coins?
           </h2>
           <p className="text-muted-foreground mb-8 text-lg">
-            Start voting on the next generation of community-driven meme coins
+            Join 1-hour voting rounds, contribute to fundraises, and earn tokens
+            from successful launches
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
