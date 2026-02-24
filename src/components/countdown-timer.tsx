@@ -12,8 +12,17 @@ function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
 
-export function CountdownTimer({ endTime, onEnd, size = "md" }: CountdownTimerProps) {
-  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0, total: 0 });
+export function CountdownTimer({
+  endTime,
+  onEnd,
+  size = "md",
+}: CountdownTimerProps) {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    total: 0,
+  });
 
   useEffect(() => {
     function update() {
@@ -58,13 +67,15 @@ export function CountdownTimer({ endTime, onEnd, size = "md" }: CountdownTimerPr
         <div key={unit.label} className="flex items-center gap-2">
           <div className="flex flex-col items-center">
             <span
-              className={`${sizeClasses[size]} font-mono font-bold tabular-nums tracking-wider ${
+              className={`${sizeClasses[size]} font-mono font-bold tracking-wider tabular-nums ${
                 isUrgent ? "text-destructive animate-pulse" : "text-foreground"
               }`}
             >
               {pad(unit.value)}
             </span>
-            <span className={`${labelClasses[size]} font-medium text-muted-foreground uppercase tracking-widest`}>
+            <span
+              className={`${labelClasses[size]} text-muted-foreground font-medium tracking-widest uppercase`}
+            >
               {unit.label}
             </span>
           </div>

@@ -58,7 +58,8 @@ export const MOCK_MEMES: Meme[] = [
     id: "1",
     name: "PEPEWIFHAT",
     ticker: "$PWH",
-    description: "Pepe finally got his hat. The most fashionable frog on Solana. No cap, just hat. 🐸🎩",
+    description:
+      "Pepe finally got his hat. The most fashionable frog on Solana. No cap, just hat. 🐸🎩",
     imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 1_000_000_000,
     submitter: "7xKX...9fGh",
@@ -68,7 +69,8 @@ export const MOCK_MEMES: Meme[] = [
     id: "2",
     name: "SOLCAT",
     ticker: "$SCAT",
-    description: "The internet's favorite cat, now on Solana. Fast, furry, and feeless. Meow to the moon! 🐱",
+    description:
+      "The internet's favorite cat, now on Solana. Fast, furry, and feeless. Meow to the moon! 🐱",
     imageUrl: "/memes/solcat.svg",
     tokenSupply: 500_000_000,
     submitter: "3mPQ...kL2x",
@@ -78,7 +80,8 @@ export const MOCK_MEMES: Meme[] = [
     id: "3",
     name: "BONKFATHER",
     ticker: "$BFATHER",
-    description: "The Godfather of all bonks. An offer your portfolio can't refuse. 🔨🎬",
+    description:
+      "The Godfather of all bonks. An offer your portfolio can't refuse. 🔨🎬",
     imageUrl: "/memes/bonkfather.svg",
     tokenSupply: 2_000_000_000,
     submitter: "9aBC...dE4f",
@@ -88,7 +91,8 @@ export const MOCK_MEMES: Meme[] = [
     id: "4",
     name: "GIGACHAD",
     ticker: "$GIGA",
-    description: "Average meme coin fan vs average GIGACHAD enjoyer. Built different, launched different. 💪",
+    description:
+      "Average meme coin fan vs average GIGACHAD enjoyer. Built different, launched different. 💪",
     imageUrl: "/memes/gigachad.svg",
     tokenSupply: 420_690_000,
     submitter: "5gHi...jK7m",
@@ -98,7 +102,8 @@ export const MOCK_MEMES: Meme[] = [
     id: "5",
     name: "DOGEWIFKNIFE",
     ticker: "$DWK",
-    description: "He's a good boy. With a knife. Don't ask questions. Just ape. 🐕🔪",
+    description:
+      "He's a good boy. With a knife. Don't ask questions. Just ape. 🐕🔪",
     imageUrl: "/memes/dogewifknife.svg",
     tokenSupply: 777_777_777,
     submitter: "2nOP...qR8s",

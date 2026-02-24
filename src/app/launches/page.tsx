@@ -39,14 +39,14 @@ const statusConfig = {
 
 export default function LaunchesPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="flex items-center gap-3 mb-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-            <Trophy className="h-5 w-5 text-primary" />
+        <div className="mb-2 flex items-center gap-3">
+          <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-xl">
+            <Trophy className="text-primary h-5 w-5" />
           </div>
           <h1 className="text-3xl font-black">Past Launches</h1>
         </div>
@@ -60,7 +60,7 @@ export default function LaunchesPage() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="grid grid-cols-3 gap-4 mb-8"
+        className="mb-8 grid grid-cols-3 gap-4"
       >
         {[
           {
@@ -87,7 +87,7 @@ export default function LaunchesPage() {
             className="glass-card rounded-xl p-4 text-center"
           >
             <p className={`text-2xl font-black ${stat.color}`}>{stat.count}</p>
-            <p className="text-xs text-muted-foreground font-medium">
+            <p className="text-muted-foreground text-xs font-medium">
               {stat.label}
             </p>
           </div>
@@ -107,11 +107,11 @@ export default function LaunchesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.1 }}
-              className="glass-card rounded-2xl overflow-hidden hover:border-primary/20 transition-colors"
+              className="glass-card hover:border-primary/20 overflow-hidden rounded-2xl transition-colors"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Image */}
-                <div className="relative w-full sm:w-48 h-48 sm:h-auto shrink-0">
+                <div className="relative h-48 w-full shrink-0 sm:h-auto sm:w-48">
                   <Image
                     src={launch.meme.imageUrl}
                     alt={launch.meme.name}
@@ -119,23 +119,23 @@ export default function LaunchesPage() {
                     className="object-cover"
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/40 hidden sm:block" />
+                  <div className="absolute inset-0 hidden bg-linear-to-r from-transparent to-black/40 sm:block" />
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent sm:hidden" />
                 </div>
 
                 {/* Info */}
-                <div className="flex-1 p-5 sm:p-6 space-y-4">
+                <div className="flex-1 space-y-4 p-5 sm:p-6">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="mb-1 flex items-center gap-2">
                         <h3 className="text-xl font-black">
                           {launch.meme.name}
                         </h3>
-                        <span className="text-sm font-bold text-primary">
+                        <span className="text-primary text-sm font-bold">
                           {launch.meme.ticker}
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground line-clamp-1">
+                      <p className="text-muted-foreground line-clamp-1 text-sm">
                         {launch.meme.description}
                       </p>
                     </div>
@@ -147,7 +147,7 @@ export default function LaunchesPage() {
 
                   {/* Stats Row */}
                   <div className="flex flex-wrap items-center gap-4 text-sm">
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center gap-1.5">
                       <Vote className="h-3.5 w-3.5" />
                       <span>
                         <span className="text-foreground font-bold">
@@ -156,7 +156,7 @@ export default function LaunchesPage() {
                         votes
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center gap-1.5">
                       <TrendingUp className="h-3.5 w-3.5" />
                       <span>
                         <span className="text-foreground font-bold">
@@ -166,7 +166,7 @@ export default function LaunchesPage() {
                       </span>
                     </div>
                     {launch.launchedAt && (
-                      <div className="flex items-center gap-1.5 text-muted-foreground">
+                      <div className="text-muted-foreground flex items-center gap-1.5">
                         <Clock className="h-3.5 w-3.5" />
                         <span>{launch.launchedAt.toLocaleDateString()}</span>
                       </div>
@@ -174,7 +174,7 @@ export default function LaunchesPage() {
                   </div>
 
                   {/* Progress Bar */}
-                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
+                  <div className="bg-secondary relative h-2 w-full overflow-hidden rounded-full">
                     <div
                       className="absolute inset-y-0 left-0 rounded-full"
                       style={{
@@ -194,7 +194,7 @@ export default function LaunchesPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="rounded-full text-xs gap-1.5 h-8"
+                          className="h-8 gap-1.5 rounded-full text-xs"
                           asChild
                         >
                           <a
@@ -211,7 +211,7 @@ export default function LaunchesPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="rounded-full text-xs gap-1.5 h-8"
+                          className="h-8 gap-1.5 rounded-full text-xs"
                           asChild
                         >
                           <a
@@ -225,7 +225,7 @@ export default function LaunchesPage() {
                         </Button>
                       )}
                       {launch.tokenAddress && (
-                        <Badge variant="outline" className="text-xs font-mono">
+                        <Badge variant="outline" className="font-mono text-xs">
                           {launch.tokenAddress}
                         </Badge>
                       )}

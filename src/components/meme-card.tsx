@@ -17,7 +17,7 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`glass-card rounded-2xl overflow-hidden ${isLarge ? "max-w-md" : "max-w-xs"}`}
+      className={`glass-card overflow-hidden rounded-2xl ${isLarge ? "max-w-md" : "max-w-xs"}`}
     >
       <div
         className={`relative ${isLarge ? "h-80" : "h-48"} w-full overflow-hidden`}
@@ -30,20 +30,20 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
           unoptimized
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4">
+        <div className="absolute right-4 bottom-4 left-4">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black text-white">{meme.name}</span>
-            <span className="rounded-full bg-primary/20 px-3 py-0.5 text-sm font-bold text-primary">
+            <span className="bg-primary/20 text-primary rounded-full px-3 py-0.5 text-sm font-bold">
               {meme.ticker}
             </span>
           </div>
         </div>
       </div>
-      <div className="p-4 space-y-3">
-        <p className="text-sm text-muted-foreground leading-relaxed">
+      <div className="space-y-3 p-4">
+        <p className="text-muted-foreground text-sm leading-relaxed">
           {meme.description}
         </p>
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <div className="text-muted-foreground flex items-center justify-between text-xs">
           <span>
             Supply:{" "}
             <span className="text-foreground font-mono">

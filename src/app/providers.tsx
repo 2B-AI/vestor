@@ -10,8 +10,8 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <WalletProvider>
       <TooltipProvider>
-        <div className="relative min-h-screen bg-background bg-grid">
-          <div className="bg-radial-glow fixed inset-0 pointer-events-none" />
+        <div className="bg-background bg-grid relative min-h-screen">
+          <div className="bg-radial-glow pointer-events-none fixed inset-0" />
           <Header />
           <main className="pt-16">{children}</main>
           <Footer />

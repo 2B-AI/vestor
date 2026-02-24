@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useWallet } from "@/lib/wallet-context";
 import { Button } from "@/components/ui/button";
@@ -28,25 +29,24 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
+    <header className="glass border-border/50 fixed top-0 right-0 left-0 z-50 border-b">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-primary to-neon">
-              <Zap className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-black tracking-tight">
+          <Link href="/" className="group flex items-center gap-2">
+            <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+
+            <span className="font-orbitron text-xl font-black tracking-tight">
               <span className="text-gradient">Meme</span>
               <span className="text-foreground">Vote</span>
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden items-center gap-1 md:flex">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+                className="hover:text-foreground hover:bg-accent flex items-center gap-1.5 rounded-lg px-3 py-2 font-medium transition-colors"
               >
                 <link.icon className="h-4 w-4" />
                 {link.label}
@@ -55,7 +55,7 @@ export function Header() {
             {connected && (
               <Link
                 href="/contributions"
-                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+                className="hover:text-foreground hover:bg-accent flex items-center gap-1.5 rounded-lg px-3 py-2 font-medium transition-colors"
               >
                 <Wallet className="h-4 w-4" />
                 My Portfolio
@@ -66,10 +66,10 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           {connected ? (
-            <div className="hidden sm:flex items-center gap-2">
-              <div className="flex items-center gap-2 rounded-full bg-secondary px-4 py-2 border border-border">
-                <div className="h-2 w-2 rounded-full bg-neon animate-pulse" />
-                <span className="text-sm font-mono text-foreground">
+            <div className="hidden items-center gap-2 sm:flex">
+              <div className="bg-secondary border-border flex items-center gap-2 rounded-full border px-4 py-2">
+                <div className="bg-neon h-2 w-2 animate-pulse rounded-full" />
+                <span className="text-foreground font-mono text-sm">
                   {address}
                 </span>
               </div>
@@ -85,7 +85,7 @@ export function Header() {
           ) : (
             <Button
               onClick={connect}
-              className="hidden sm:flex bg-linear-to-r from-primary to-solana hover:opacity-90 text-white font-bold gap-2 rounded-md px-6"
+              className="from-primary to-solana hidden gap-2 rounded-md bg-linear-to-r px-6 font-bold text-white hover:opacity-90 sm:flex"
             >
               <Wallet className="h-4 w-4" />
               Connect Wallet
@@ -93,7 +93,7 @@ export function Header() {
           )}
 
           <button
-            className="md:hidden text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? (
@@ -111,15 +111,15 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border/50 overflow-hidden"
+            className="glass border-border/50 overflow-hidden border-t md:hidden"
           >
-            <nav className="flex flex-col p-4 gap-1">
+            <nav className="flex flex-col gap-1 p-4">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+                  className="hover:text-foreground hover:bg-accent flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium transition-colors"
                 >
                   <link.icon className="h-4 w-4" />
                   {link.label}
@@ -129,18 +129,18 @@ export function Header() {
                 <Link
                   href="/contributions"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-accent"
+                  className="hover:text-foreground hover:bg-accent flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium transition-colors"
                 >
                   <Wallet className="h-4 w-4" />
                   My Portfolio
                 </Link>
               )}
-              <div className="pt-2 border-t border-border/50 mt-2">
+              <div className="border-border/50 mt-2 border-t pt-2">
                 {connected ? (
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-neon animate-pulse" />
-                      <span className="text-sm font-mono text-foreground">
+                      <div className="bg-neon h-2 w-2 animate-pulse rounded-full" />
+                      <span className="text-foreground font-mono text-sm">
                         {address}
                       </span>
                     </div>
@@ -159,7 +159,7 @@ export function Header() {
                       connect();
                       setMobileOpen(false);
                     }}
-                    className="w-full bg-linear-to-r from-primary to-solana text-white font-bold gap-2 rounded-md"
+                    className="from-primary to-solana w-full gap-2 rounded-md bg-linear-to-r font-bold text-white"
                   >
                     <Wallet className="h-4 w-4" />
                     Connect Wallet

@@ -39,14 +39,14 @@ export default function ContributionsPage() {
 
   if (!connected) {
     return (
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="glass-card rounded-2xl p-12 text-center space-y-6 max-w-lg mx-auto"
+          className="glass-card mx-auto max-w-lg space-y-6 rounded-2xl p-12 text-center"
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mx-auto">
-            <Wallet className="h-8 w-8 text-primary" />
+          <div className="bg-primary/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
+            <Wallet className="text-primary h-8 w-8" />
           </div>
           <h2 className="text-2xl font-black">Connect Your Wallet</h2>
           <p className="text-muted-foreground">
@@ -56,7 +56,7 @@ export default function ContributionsPage() {
           <Button
             onClick={connect}
             size="lg"
-            className="bg-linear-to-r from-primary to-solana hover:opacity-90 text-white font-bold gap-2 rounded-md px-8"
+            className="from-primary to-solana gap-2 rounded-md bg-linear-to-r px-8 font-bold text-white hover:opacity-90"
           >
             <Wallet className="h-5 w-5" />
             Connect Wallet
@@ -68,24 +68,24 @@ export default function ContributionsPage() {
 
   const totalContributed = MOCK_CONTRIBUTIONS.reduce(
     (sum, c) => sum + c.solAmount,
-    0,
+    0
   );
   const totalRefunded = MOCK_CONTRIBUTIONS.filter(
-    (c) => c.status === "refunded",
+    (c) => c.status === "refunded"
   ).reduce((sum, c) => sum + c.solAmount, 0);
   const totalPending = MOCK_CONTRIBUTIONS.filter(
-    (c) => c.status === "pending",
+    (c) => c.status === "pending"
   ).reduce((sum, c) => sum + c.solAmount, 0);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="flex items-center gap-3 mb-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-            <Coins className="h-5 w-5 text-primary" />
+        <div className="mb-2 flex items-center gap-3">
+          <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-xl">
+            <Coins className="text-primary h-5 w-5" />
           </div>
           <h1 className="text-3xl font-black">My Portfolio</h1>
         </div>
@@ -99,12 +99,12 @@ export default function ContributionsPage() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8"
+        className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3"
       >
         <div className="glass-card rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <ArrowUpRight className="h-4 w-4 text-primary" />
-            <span className="text-sm text-muted-foreground font-medium">
+          <div className="mb-2 flex items-center gap-2">
+            <ArrowUpRight className="text-primary h-4 w-4" />
+            <span className="text-muted-foreground text-sm font-medium">
               Total Contributed
             </span>
           </div>
@@ -113,24 +113,24 @@ export default function ContributionsPage() {
           </p>
         </div>
         <div className="glass-card rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <Clock className="h-4 w-4 text-warning" />
-            <span className="text-sm text-muted-foreground font-medium">
+          <div className="mb-2 flex items-center gap-2">
+            <Clock className="text-warning h-4 w-4" />
+            <span className="text-muted-foreground text-sm font-medium">
               Pending
             </span>
           </div>
-          <p className="text-2xl font-black text-warning">
+          <p className="text-warning text-2xl font-black">
             {totalPending.toFixed(1)} SOL
           </p>
         </div>
         <div className="glass-card rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <ArrowDownLeft className="h-4 w-4 text-destructive" />
-            <span className="text-sm text-muted-foreground font-medium">
+          <div className="mb-2 flex items-center gap-2">
+            <ArrowDownLeft className="text-destructive h-4 w-4" />
+            <span className="text-muted-foreground text-sm font-medium">
               Refunded
             </span>
           </div>
-          <p className="text-2xl font-black text-destructive">
+          <p className="text-destructive text-2xl font-black">
             {totalRefunded.toFixed(1)} SOL
           </p>
         </div>
@@ -148,11 +148,11 @@ export default function ContributionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.1 }}
-              className="glass-card rounded-2xl overflow-hidden hover:border-primary/20 transition-colors"
+              className="glass-card hover:border-primary/20 overflow-hidden rounded-2xl transition-colors"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Image */}
-                <div className="relative w-full sm:w-36 h-36 sm:h-auto shrink-0">
+                <div className="relative h-36 w-full shrink-0 sm:h-auto sm:w-36">
                   <Image
                     src={contrib.meme.imageUrl}
                     alt={contrib.meme.name}
@@ -163,18 +163,18 @@ export default function ContributionsPage() {
                 </div>
 
                 {/* Info */}
-                <div className="flex-1 p-5 space-y-3">
+                <div className="flex-1 space-y-3 p-5">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="mb-1 flex items-center gap-2">
                         <h3 className="text-lg font-black">
                           {contrib.meme.name}
                         </h3>
-                        <span className="text-sm font-bold text-primary">
+                        <span className="text-primary text-sm font-bold">
                           {contrib.meme.ticker}
                         </span>
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-muted-foreground text-xs">
                         {contrib.timestamp.toLocaleDateString()} at{" "}
                         {contrib.timestamp.toLocaleTimeString()}
                       </p>
@@ -187,7 +187,7 @@ export default function ContributionsPage() {
 
                   <div className="flex flex-wrap items-center gap-6">
                     <div>
-                      <p className="text-xs text-muted-foreground font-medium">
+                      <p className="text-muted-foreground text-xs font-medium">
                         Contributed
                       </p>
                       <p className="text-lg font-black">
@@ -196,12 +196,12 @@ export default function ContributionsPage() {
                     </div>
                     {contrib.tokensReceived && (
                       <div>
-                        <p className="text-xs text-muted-foreground font-medium">
+                        <p className="text-muted-foreground text-xs font-medium">
                           Tokens Received
                         </p>
-                        <p className="text-lg font-black text-neon">
+                        <p className="text-neon text-lg font-black">
                           {contrib.tokensReceived.toLocaleString()}{" "}
-                          <span className="text-sm text-primary">
+                          <span className="text-primary text-sm">
                             {contrib.meme.ticker}
                           </span>
                         </p>
@@ -209,14 +209,14 @@ export default function ContributionsPage() {
                     )}
                     {contrib.tokenAddress && (
                       <div>
-                        <p className="text-xs text-muted-foreground font-medium">
+                        <p className="text-muted-foreground text-xs font-medium">
                           Token
                         </p>
                         <div className="flex items-center gap-1">
-                          <span className="text-sm font-mono">
+                          <span className="font-mono text-sm">
                             {contrib.tokenAddress}
                           </span>
-                          <ExternalLink className="h-3 w-3 text-muted-foreground" />
+                          <ExternalLink className="text-muted-foreground h-3 w-3" />
                         </div>
                       </div>
                     )}

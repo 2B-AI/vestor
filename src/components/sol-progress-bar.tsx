@@ -13,12 +13,13 @@ export function SolProgressBar({ raised, cap }: SolProgressBarProps) {
   return (
     <div className="w-full space-y-2">
       <div className="flex items-center justify-between text-sm">
-        <span className="font-medium text-muted-foreground">
-          <span className="text-foreground font-bold">{raised.toFixed(1)}</span> / {cap} SOL
+        <span className="text-muted-foreground font-medium">
+          <span className="text-foreground font-bold">{raised.toFixed(1)}</span>{" "}
+          / {cap} SOL
         </span>
-        <span className="font-mono text-neon font-bold">{pct.toFixed(1)}%</span>
+        <span className="text-neon font-mono font-bold">{pct.toFixed(1)}%</span>
       </div>
-      <div className="relative h-4 w-full overflow-hidden rounded-full bg-secondary">
+      <div className="bg-secondary relative h-4 w-full overflow-hidden rounded-full">
         <motion.div
           className="absolute inset-y-0 left-0 rounded-full"
           style={{
@@ -29,7 +30,7 @@ export function SolProgressBar({ raised, cap }: SolProgressBarProps) {
           transition={{ duration: 1.2, ease: "easeOut" }}
         />
         <div
-          className="absolute inset-y-0 left-0 rounded-full opacity-40 animate-shimmer"
+          className="animate-shimmer absolute inset-y-0 left-0 rounded-full opacity-40"
           style={{
             width: `${pct}%`,
             background:
