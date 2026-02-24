@@ -270,14 +270,14 @@ export default function About() {
           transition={{ delay: 0.9 }}
           className="mt-8 grid gap-6 sm:grid-cols-2"
         >
-          <div className="bg-primary/5 border-primary/10 rounded-xl border p-4">
+          <div className="border-primary/10 rounded-xl border bg-[rgba(21,21,21,1)] p-4">
             <h4 className="mb-2 font-bold">Automatic Refunds</h4>
             <p className="text-muted-foreground text-sm">
               If 85 SOL isn&apos;t reached in 48 hours, all contributors get
               automatic refunds via smart contract.
             </p>
           </div>
-          <div className="bg-neon/5 border-neon/10 rounded-xl border p-4">
+          <div className="border-neon/10 rounded-xl border bg-[rgba(21,21,21,1)] p-4">
             <h4 className="mb-2 font-bold">Anti-Manipulation</h4>
             <p className="text-muted-foreground text-sm">
               One wallet = one vote maximum, enforced at smart contract level.
