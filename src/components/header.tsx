@@ -13,6 +13,7 @@ import {
   Trophy,
   PlusCircle,
   History,
+  Github,
 } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -65,6 +66,29 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Social Links */}
+          <div className="hidden items-center gap-3 md:flex">
+            <Link
+              href="https://twitter.com/memevote"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="Follow us on X (Twitter)"
+              aria-label="Follow us on X (Twitter)"
+            >
+              <X className="h-6 w-6" />
+            </Link>
+            <Link
+              href="https://github.com/memevote"
+              target="_blank"
+              title="View our GitHub"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="View our GitHub"
+            >
+              <Github className="h-6 w-6" />
+            </Link>
+          </div>
           {connected ? (
             <div className="hidden items-center gap-2 sm:flex">
               <div className="bg-secondary border-border flex items-center gap-2 rounded-full border px-4 py-2">
@@ -133,7 +157,34 @@ export function Header() {
                   My Portfolio
                 </Link>
               )}
+
+              {/* Mobile Social Links */}
               <div className="border-border/50 mt-2 border-t pt-2">
+                <div className="mb-3 flex items-center justify-center gap-4">
+                  <Link
+                    href="https://twitter.com/memevote"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Follow us on X (Twitter)"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="Follow us on X (Twitter)"
+                  >
+                    <X className="h-6 w-6" />
+                  </Link>
+                  <Link
+                    href="https://github.com/memevote"
+                    target="_blank"
+                    title="View our GitHub"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="View our GitHub"
+                  >
+                    <Github className="h-6 w-6" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="border-border/50 border-t pt-2">
                 {connected ? (
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
