@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0a2e"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="glow6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c084fc"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <filter id="shadow6">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#c084fc" flood-opacity="0.3"/>
+    </filter>
+    <radialGradient id="star1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#fff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg6)"/>
+  <g opacity="0.04" stroke="#c084fc" stroke-width="0.5">
+    <line x1="0" y1="50" x2="400" y2="50"/><line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="250" x2="400" y2="250"/><line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="0" y1="350" x2="400" y2="350"/>
+    <line x1="50" y1="0" x2="50" y2="400"/><line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/><line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/><line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+  </g>
+  <!-- Stars -->
+  <circle cx="50" cy="40" r="2" fill="#fff" opacity="0.7"/>
+  <circle cx="120" cy="70" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="320" cy="50" r="2" fill="#c084fc" opacity="0.6"/>
+  <circle cx="350" cy="90" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="80" cy="120" r="1.5" fill="#a855f7" opacity="0.5"/>
+  <circle cx="340" cy="200" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="60" cy="250" r="2" fill="#c084fc" opacity="0.4"/>
+  <circle cx="350" cy="310" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="280" cy="60" r="1" fill="#fff" opacity="0.6"/>
+  <!-- Nebula glow -->
+  <circle cx="200" cy="180" r="140" fill="#c084fc" opacity="0.04"/>
+  <circle cx="200" cy="180" r="90" fill="#a855f7" opacity="0.06"/>
+  <ellipse cx="150" cy="100" rx="60" ry="30" fill="#7c3aed" opacity="0.04" transform="rotate(-20,150,100)"/>
+  <!-- Llama body -->
+  <ellipse cx="200" cy="260" rx="65" ry="50" fill="#f5f5f4" filter="url(#shadow6)"/>
+  <!-- Neck - long -->
+  <rect x="180" y="140" width="40" height="120" rx="18" fill="#f5f5f4"/>
+  <rect x="185" y="150" width="30" height="100" rx="14" fill="#e7e5e4"/>
+  <!-- Head -->
+  <ellipse cx="200" cy="130" rx="35" ry="30" fill="#f5f5f4"/>
+  <ellipse cx="200" cy="135" rx="28" ry="22" fill="#e7e5e4"/>
+  <!-- Ears - tall -->
+  <ellipse cx="178" cy="95" rx="8" ry="22" fill="#f5f5f4" transform="rotate(-10,178,95)"/>
+  <ellipse cx="180" cy="95" rx="5" ry="16" fill="#fda4af" transform="rotate(-10,180,95)"/>
+  <ellipse cx="222" cy="95" rx="8" ry="22" fill="#f5f5f4" transform="rotate(10,222,95)"/>
+  <ellipse cx="220" cy="95" rx="5" ry="16" fill="#fda4af" transform="rotate(10,220,95)"/>
+  <!-- Eyes - cute -->
+  <circle cx="188" cy="125" r="10" fill="#1e1b4b"/>
+  <circle cx="212" cy="125" r="10" fill="#1e1b4b"/>
+  <circle cx="191" cy="122" r="3.5" fill="#fff"/>
+  <circle cx="215" cy="122" r="3.5" fill="#fff"/>
+  <circle cx="186" cy="128" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="210" cy="128" r="1.5" fill="#fff" opacity="0.5"/>
+  <!-- Blush -->
+  <ellipse cx="175" cy="138" rx="8" ry="4" fill="#fda4af" opacity="0.4"/>
+  <ellipse cx="225" cy="138" rx="8" ry="4" fill="#fda4af" opacity="0.4"/>
+  <!-- Nose/mouth -->
+  <ellipse cx="200" cy="145" rx="5" ry="3" fill="#a8a29e"/>
+  <path d="M194 150 Q200 156 206 150" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <!-- Legs -->
+  <rect x="160" y="290" width="16" height="40" rx="6" fill="#f5f5f4"/>
+  <rect x="224" y="290" width="16" height="40" rx="6" fill="#f5f5f4"/>
+  <!-- VR headset -->
+  <rect x="172" y="115" width="56" height="22" rx="6" fill="#7c3aed" opacity="0.85"/>
+  <rect x="175" y="118" width="22" height="16" rx="3" fill="#4c1d95"/>
+  <rect x="203" y="118" width="22" height="16" rx="3" fill="#4c1d95"/>
+  <!-- Headset glow -->
+  <rect x="176" y="119" width="8" height="5" rx="1" fill="#c084fc" opacity="0.4"/>
+  <rect x="204" y="119" width="8" height="5" rx="1" fill="#c084fc" opacity="0.4"/>
+  <!-- Sparkles -->
+  <text x="55" y="180" font-size="22" opacity="0.7">🦙</text>
+  <text x="310" y="170" font-size="18" opacity="0.6">🌌</text>
+  <text x="80" y="330" font-size="16" opacity="0.4">🚀</text>
+  <text x="300" y="330" font-size="18" opacity="0.5">✨</text>
+  <!-- Bottom label -->
+  <rect x="100" y="345" width="200" height="40" rx="20" fill="url(#glow6)" opacity="0.9"/>
+  <text x="200" y="371" text-anchor="middle" font-family="monospace" font-size="15" font-weight="bold" fill="#fff">LLAMAVERSE</text>
+</svg>

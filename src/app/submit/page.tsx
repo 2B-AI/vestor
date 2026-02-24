@@ -135,10 +135,12 @@ export default function SubmitPage() {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-3 py-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                    <ImageIcon className="h-6 w-6 text-primary" />
-                  </div>
+                <div className="flex flex-col items-center gap-3 py-4">
+                  <img
+                    src="/memes/placeholder.svg"
+                    alt="Upload placeholder"
+                    className="w-full max-w-[200px] h-auto opacity-60"
+                  />
                   <div className="text-center">
                     <p className="text-sm font-medium">Drop your meme here or click to upload</p>
                     <p className="text-xs text-muted-foreground mt-1">PNG, JPG, GIF up to 5MB</p>
