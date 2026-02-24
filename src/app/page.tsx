@@ -143,21 +143,21 @@ export default function Home() {
               className="flex-1 space-y-6 text-center lg:text-left"
             >
               <div>
-                <div className="mb-3 flex items-center justify-center gap-3 lg:justify-start">
-                  <h1 className="text-5xl font-black tracking-tight sm:text-6xl">
+                <div className="mb-3 flex items-baseline justify-center gap-3 lg:justify-start">
+                  <h1 className="text-5xl font-extrabold sm:text-6xl">
                     {meme.name}
                   </h1>
-                  <span className="bg-primary/20 text-primary rounded-full px-4 py-1.5 text-lg font-bold">
+                  <span className="border-primary text-primary mb-1 rounded-full border px-2 py-0.5 font-semibold">
                     {meme.ticker}
                   </span>
                 </div>
-                <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
+                <p className="max-w-lg text-lg leading-relaxed">
                   {meme.description}
                 </p>
               </div>
 
               {/* Timer */}
-              <div className="glass-card inline-block rounded-2xl p-6">
+              <div className="inline-block rounded-md border border-[rgba(35,35,35,1)] bg-[rgba(21,21,21,1)] p-6">
                 <p className="text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase">
                   Voting Ends In
                 </p>
@@ -170,16 +170,12 @@ export default function Home() {
                   <p className="text-gradient text-4xl font-black tabular-nums">
                     {voteCount}
                   </p>
-                  <p className="text-muted-foreground text-sm font-medium">
-                    Total Votes
-                  </p>
+                  <p className="text-sm font-medium">Total Votes</p>
                 </div>
-                <div className="bg-border h-12 w-px" />
+                <div className="border-primary/20 h-12 w-px border" />
                 <div>
                   <p className="text-foreground text-4xl font-black">0.05</p>
-                  <p className="text-muted-foreground text-sm font-medium">
-                    SOL per vote
-                  </p>
+                  <p className="text-sm font-medium">SOL per vote</p>
                 </div>
               </div>
 
@@ -227,9 +223,7 @@ export default function Home() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-                <p className="text-muted-foreground text-xs">
-                  1 wallet = 1 vote per round
-                </p>
+                <p className="text-sm">1 wallet = 1 vote per round</p>
               </div>
             </motion.div>
           </div>
@@ -244,25 +238,19 @@ export default function Home() {
           transition={{ delay: 0.4 }}
         >
           <Link href="/fundraise" className="group block">
-            <div className="glass-card neon-glow rounded-2xl p-6 transition-shadow hover:shadow-[0_0_30px_rgba(20,241,149,0.2)] sm:p-8">
+            <div className="glass-card rounded-2xl p-6 drop-shadow-lg drop-shadow-[rgba(112,224,0,0.2)] transition-shadow hover:shadow-[0_0_30px_rgba(20,241,149,0.2)] sm:p-8">
               <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-3">
                   <div className="bg-neon/10 flex h-10 w-10 items-center justify-center rounded-xl">
                     <Rocket className="text-neon h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-neon text-xs font-medium tracking-widest uppercase">
+                    <p className="text-primary text-sm font-medium tracking-widest uppercase">
                       Active Fundraise
-                    </p>
-                    <p className="text-xl font-black">
-                      {MOCK_ACTIVE_FUNDRAISE.meme.name}{" "}
-                      <span className="text-primary text-base font-bold">
-                        {MOCK_ACTIVE_FUNDRAISE.meme.ticker}
-                      </span>
                     </p>
                   </div>
                 </div>
-                <div className="text-muted-foreground group-hover:text-neon flex items-center gap-2 text-sm transition-colors">
+                <div className="text-primary flex items-center gap-2 text-sm transition-colors">
                   Contribute SOL <ArrowRight className="h-4 w-4" />
                 </div>
               </div>
@@ -270,13 +258,13 @@ export default function Home() {
               {/* Progress */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">
-                    <span className="text-foreground text-lg font-bold">
-                      {MOCK_ACTIVE_FUNDRAISE.solRaised.toFixed(1)}
-                    </span>{" "}
-                    / {MOCK_ACTIVE_FUNDRAISE.solCap} SOL
-                  </span>
-                  <div className="flex items-center gap-4">
+                  <p className="text-xl font-black">
+                    {MOCK_ACTIVE_FUNDRAISE.meme.name}{" "}
+                    <span className="text-primary text-base font-bold">
+                      {MOCK_ACTIVE_FUNDRAISE.meme.ticker}
+                    </span>
+                  </p>
+                  <div className="flex flex-col items-end gap-1">
                     <span className="text-muted-foreground flex items-center gap-1">
                       <Users className="h-3.5 w-3.5" />
                       {MOCK_ACTIVE_FUNDRAISE.contributors} contributors
@@ -295,7 +283,8 @@ export default function Home() {
                   <motion.div
                     className="absolute inset-y-0 left-0 rounded-full"
                     style={{
-                      background: "linear-gradient(90deg, #9945ff, #14f195)",
+                      background:
+                        "linear-gradient(90deg, rgba(99,181,17,1), rgba(191,249,133,1))",
                     }}
                     initial={{ width: 0 }}
                     animate={{
