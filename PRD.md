@@ -119,7 +119,7 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 ### 5.4 Voting
 
 - Each voting round lasts exactly 1 hour
-- One meme is up for vote at a time
+- Three memes are up for vote at a time
 - Voting costs 0.05 SOL per vote, paid on-chain
 - 1 wallet = 1 vote maximum per round (paying more does not grant more votes)
 - Votes are recorded on-chain in real time

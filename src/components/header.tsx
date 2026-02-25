@@ -19,6 +19,7 @@ import {
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GITHUB_URL, X_URL } from "@/constants";
+import { XIcon } from "@/components/icons/x-icon";
 
 const NAV_LINKS = [
   { href: "/", label: "Vote", icon: Zap },
@@ -78,7 +79,7 @@ export function Header() {
               title="Follow us on X (Twitter)"
               aria-label="Follow us on X (Twitter)"
             >
-              <X className="h-6 w-6" />
+              <XIcon className="h-5 w-5" />
             </Link>
             <Link
               href={GITHUB_URL}
@@ -171,7 +172,7 @@ export function Header() {
                     className="text-muted-foreground hover:text-foreground transition-colors"
                     aria-label="Follow us on X (Twitter)"
                   >
-                    <X className="h-6 w-6" />
+                    <XIcon className="h-5 w-5" />
                   </Link>
                   <Link
                     href={GITHUB_URL}

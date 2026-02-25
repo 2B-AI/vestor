@@ -14,10 +14,10 @@ import {
   Shield,
   ArrowRight,
   Github,
-  X,
 } from "lucide-react";
 import Stats from "@/components/Stats";
 import { GITHUB_URL, X_URL } from "@/constants";
+import { XIcon } from "@/components/icons/x-icon";
 
 export default function About() {
   return (
@@ -327,7 +327,7 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <X className="h-6 w-6" />
+                <XIcon className="h-5 w-5" />
               </Link>
               <Link
                 href={GITHUB_URL}

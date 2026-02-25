@@ -102,7 +102,7 @@ export default function SubmitPage() {
               Estimated Approval Time
             </p>
             <p className="text-primary text-lg font-bold">
-              ~36 hours
+              ~3-6 hours
             </p>
           </div>
           <div className="pt-4">
@@ -394,8 +394,9 @@ export default function SubmitPage() {
                 Submission is{" "}
                 <span className="text-foreground font-bold">free</span>. Your
                 meme will enter the queue and be picked for the next available
-                voting slot.
+                voting slot once it is approved.
               </p>
+              <br/>
               <p>
                 If your meme doesn&apos;t win, it can be resubmitted in a future
                 round by anyone.
