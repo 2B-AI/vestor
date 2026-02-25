@@ -17,6 +17,7 @@ import {
   X,
 } from "lucide-react";
 import Stats from "@/components/Stats";
+import { GITHUB_URL, X_URL } from "@/constants";
 
 export default function About() {
   return (
@@ -321,7 +322,7 @@ export default function About() {
 
             <div className="flex items-center gap-4">
               <Link
-                href="https://twitter.com/memevote"
+                href={X_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -329,7 +330,7 @@ export default function About() {
                 <X className="h-6 w-6" />
               </Link>
               <Link
-                href="https://github.com/memevote"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"

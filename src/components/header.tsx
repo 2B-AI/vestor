@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { GITHUB_URL, X_URL } from "@/constants";
 
 const NAV_LINKS = [
   { href: "/", label: "Vote", icon: Zap },
@@ -71,7 +72,7 @@ export function Header() {
           {/* Social Links */}
           <div className="hidden items-center gap-3 md:flex">
             <Link
-              href="https://twitter.com/memevote"
+              href={X_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -81,7 +82,7 @@ export function Header() {
               <X className="h-6 w-6" />
             </Link>
             <Link
-              href="https://github.com/memevote"
+              href={GITHUB_URL}
               target="_blank"
               title="View our GitHub"
               rel="noopener noreferrer"
@@ -164,7 +165,7 @@ export function Header() {
               <div className="border-border/50 mt-2 border-t pt-2">
                 <div className="mb-3 flex items-center justify-center gap-4">
                   <Link
-                    href="https://twitter.com/memevote"
+                    href={X_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Follow us on X (Twitter)"
@@ -174,7 +175,7 @@ export function Header() {
                     <X className="h-6 w-6" />
                   </Link>
                   <Link
-                    href="https://github.com/memevote"
+                    href={GITHUB_URL}
                     target="_blank"
                     title="View our GitHub"
                     rel="noopener noreferrer"
