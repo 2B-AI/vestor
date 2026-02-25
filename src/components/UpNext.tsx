@@ -1,4 +1,4 @@
-import { MOCK_QUEUE_MEMES } from "@/lib/mock-data";
+import { MOCK_QUEUE_PROJECTS } from "@/lib/mock-data";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -21,14 +21,14 @@ const UpNext = () => {
             href="/submit"
             className="text-primary hover:text-primary/80 flex items-center gap-1 text-sm font-medium"
           >
-            Submit a Meme <ArrowRight className="h-3.5 w-3.5" />
+            Submit a Project <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {MOCK_QUEUE_MEMES.map((queueMeme, i) => (
+          {MOCK_QUEUE_PROJECTS.map((queueProject, i) => (
             <motion.div
-              key={queueMeme.id}
+              key={queueProject.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 + i * 0.1 }}
@@ -36,8 +36,8 @@ const UpNext = () => {
             >
               <div className="bg-grid relative h-56 overflow-hidden !border-b-0">
                 <Image
-                  src={queueMeme.imageUrl}
-                  alt={queueMeme.name}
+                  src={queueProject.imageUrl}
+                  alt={queueProject.name}
                   width={240}
                   height={240}
                   className="mx-auto transition-transform duration-500 group-hover:scale-105"
@@ -53,13 +53,13 @@ const UpNext = () => {
                   </Badge>
                 </div>
                 <div className="absolute bottom-3 left-3">
-                  <p className="text-xl font-black">{queueMeme.name}</p>
-                  <p className="text-sm font-medium">{queueMeme.ticker}</p>
+                  <p className="text-xl font-black">{queueProject.name}</p>
+                  <p className="text-sm font-medium">{queueProject.ticker}</p>
                 </div>
               </div>
               <div className="border border-t-0 border-[rgba(35,35,35,1)] p-3">
                 <p className="text-muted-foreground line-clamp-2 text-sm font-medium">
-                  {queueMeme.description}
+                  {queueProject.description}
                 </p>
               </div>
             </motion.div>

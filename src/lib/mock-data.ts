@@ -1,4 +1,4 @@
-export interface Meme {
+export interface Project {
   id: string;
   name: string;
   ticker: string;
@@ -11,17 +11,17 @@ export interface Meme {
 
 export interface VotingRound {
   id: string;
-  memes: Meme[];
+  projects: Project[];
   startTime: Date;
   endTime: Date;
-  voteCounts: { [memeId: string]: number };
+  voteCounts: { [projectId: string]: number };
   status: "active" | "ended";
-  hasVoted?: { [memeId: string]: boolean };
+  hasVoted?: { [projectId: string]: boolean };
 }
 
 export interface Fundraise {
   id: string;
-  meme: Meme;
+  project: Project;
   solRaised: number;
   solCap: number;
   startTime: Date;
@@ -32,7 +32,7 @@ export interface Fundraise {
 
 export interface PastLaunch {
   id: string;
-  meme: Meme;
+  project: Project;
   status: "launched" | "funded" | "failed";
   solRaised: number;
   solCap: number;
@@ -45,7 +45,7 @@ export interface PastLaunch {
 
 export interface Contribution {
   id: string;
-  meme: Meme;
+  project: Project;
   solAmount: number;
   timestamp: Date;
   status: "pending" | "refunded" | "distributed";
@@ -53,13 +53,13 @@ export interface Contribution {
   tokenAddress?: string;
 }
 
-export const MOCK_MEMES: Meme[] = [
+export const MOCK_PROJECTS: Project[] = [
   {
     id: "1",
-    name: "PEPEWIFHAT",
-    ticker: "$PWH",
+    name: "NeuroLang",
+    ticker: "$NRL",
     description:
-      "Pepe finally got his hat. The most fashionable frog on Solana. No cap, just hat. 🐸🎩",
+      "Decentralized LLM inference network on Solana. Run AI models permissionlessly with token-incentivized GPU providers.",
     imageUrl: "/memes/pepewifhat.svg",
     tokenSupply: 1_000_000_000,
     submitter: "7xKX...9fGh",
@@ -67,10 +67,10 @@ export const MOCK_MEMES: Meme[] = [
   },
   {
     id: "2",
-    name: "SOLCAT",
-    ticker: "$SCAT",
+    name: "SolVision",
+    ticker: "$SVIS",
     description:
-      "The internet's favorite cat, now on Solana. Fast, furry, and feeless. Meow to the moon! 🐱",
+      "On-chain computer vision API. Developers pay with tokens to access real-time image recognition models.",
     imageUrl: "/memes/solcat.svg",
     tokenSupply: 500_000_000,
     submitter: "3mPQ...kL2x",
@@ -78,10 +78,10 @@ export const MOCK_MEMES: Meme[] = [
   },
   {
     id: "3",
-    name: "BONKFATHER",
-    ticker: "$BFATHER",
+    name: "AgentForge",
+    ticker: "$AFRG",
     description:
-      "The Godfather of all bonks. An offer your portfolio can't refuse. 🔨🎬",
+      "Autonomous AI agent marketplace on Solana. Deploy, discover, and monetize AI agents with on-chain payments.",
     imageUrl: "/memes/bonkfather.svg",
     tokenSupply: 2_000_000_000,
     submitter: "9aBC...dE4f",
@@ -89,10 +89,10 @@ export const MOCK_MEMES: Meme[] = [
   },
   {
     id: "4",
-    name: "GIGACHAD",
-    ticker: "$GIGA",
+    name: "DataMesh",
+    ticker: "$DMSH",
     description:
-      "Average meme coin fan vs average GIGACHAD enjoyer. Built different, launched different. 💪",
+      "Decentralized AI training data marketplace. Contributors earn tokens for providing high-quality labeled datasets.",
     imageUrl: "/memes/gigachad.svg",
     tokenSupply: 420_690_000,
     submitter: "5gHi...jK7m",
@@ -100,10 +100,10 @@ export const MOCK_MEMES: Meme[] = [
   },
   {
     id: "5",
-    name: "DOGEWIFKNIFE",
-    ticker: "$DWK",
+    name: "ChainMind",
+    ticker: "$CMND",
     description:
-      "He's a good boy. With a knife. Don't ask questions. Just ape. 🐕🔪",
+      "AI-powered smart contract auditor. Automated vulnerability detection and optimization suggestions for Solana programs.",
     imageUrl: "/memes/dogewifknife.svg",
     tokenSupply: 777_777_777,
     submitter: "2nOP...qR8s",
@@ -116,7 +116,7 @@ const oneHourFromNow = new Date(now.getTime() + 3600000);
 
 export const MOCK_ACTIVE_VOTE: VotingRound = {
   id: "round-42",
-  memes: [MOCK_MEMES[0], MOCK_MEMES[1], MOCK_MEMES[2]],
+  projects: [MOCK_PROJECTS[0], MOCK_PROJECTS[1], MOCK_PROJECTS[2]],
   startTime: now,
   endTime: oneHourFromNow,
   voteCounts: {
@@ -134,7 +134,7 @@ export const MOCK_ACTIVE_VOTE: VotingRound = {
 
 export const MOCK_ACTIVE_FUNDRAISE: Fundraise = {
   id: "fund-41",
-  meme: MOCK_MEMES[1],
+  project: MOCK_PROJECTS[1],
   solRaised: 52.4,
   solCap: 85,
   startTime: new Date(now.getTime() - 12 * 3600000),
@@ -146,7 +146,7 @@ export const MOCK_ACTIVE_FUNDRAISE: Fundraise = {
 export const MOCK_PAST_LAUNCHES: PastLaunch[] = [
   {
     id: "launch-1",
-    meme: MOCK_MEMES[2],
+    project: MOCK_PROJECTS[2],
     status: "launched",
     solRaised: 85,
     solCap: 85,
@@ -158,7 +158,7 @@ export const MOCK_PAST_LAUNCHES: PastLaunch[] = [
   },
   {
     id: "launch-2",
-    meme: MOCK_MEMES[3],
+    project: MOCK_PROJECTS[3],
     status: "funded",
     solRaised: 85,
     solCap: 85,
@@ -167,7 +167,7 @@ export const MOCK_PAST_LAUNCHES: PastLaunch[] = [
   },
   {
     id: "launch-3",
-    meme: MOCK_MEMES[4],
+    project: MOCK_PROJECTS[4],
     status: "failed",
     solRaised: 31.2,
     solCap: 85,
@@ -179,14 +179,14 @@ export const MOCK_PAST_LAUNCHES: PastLaunch[] = [
 export const MOCK_CONTRIBUTIONS: Contribution[] = [
   {
     id: "contrib-1",
-    meme: MOCK_MEMES[1],
+    project: MOCK_PROJECTS[1],
     solAmount: 2.5,
     timestamp: new Date(now.getTime() - 6 * 3600000),
     status: "pending",
   },
   {
     id: "contrib-2",
-    meme: MOCK_MEMES[2],
+    project: MOCK_PROJECTS[2],
     solAmount: 5.0,
     timestamp: new Date(now.getTime() - 3 * 86400000),
     status: "distributed",
@@ -195,15 +195,15 @@ export const MOCK_CONTRIBUTIONS: Contribution[] = [
   },
   {
     id: "contrib-3",
-    meme: MOCK_MEMES[4],
+    project: MOCK_PROJECTS[4],
     solAmount: 1.0,
     timestamp: new Date(now.getTime() - 7 * 86400000),
     status: "refunded",
   },
 ];
 
-export const MOCK_QUEUE_MEMES: Meme[] = [
-  MOCK_MEMES[3],
-  MOCK_MEMES[4],
-  MOCK_MEMES[2],
+export const MOCK_QUEUE_PROJECTS: Project[] = [
+  MOCK_PROJECTS[3],
+  MOCK_PROJECTS[4],
+  MOCK_PROJECTS[2],
 ];

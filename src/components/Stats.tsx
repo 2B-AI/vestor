@@ -27,7 +27,7 @@ const Stats = () => {
             icon: Users,
           },
           {
-            label: "Winning Memes",
+            label: "Winning Projects",
             value: "23",
             icon: Trophy,
           },

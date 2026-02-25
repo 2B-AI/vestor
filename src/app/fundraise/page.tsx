@@ -27,7 +27,7 @@ export default function FundraisePage() {
   const [contributing, setContributing] = useState(false);
   const [contributed, setContributed] = useState(false);
   const fund = MOCK_ACTIVE_FUNDRAISE;
-  const meme = fund.meme;
+  const project = fund.project;
 
   const handleContribute = () => {
     if (!connected) {
@@ -69,7 +69,7 @@ export default function FundraisePage() {
       </motion.div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
-        {/* Left: Meme Info */}
+        {/* Left: Project Info */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -78,8 +78,8 @@ export default function FundraisePage() {
           <div className="bg-grid overflow-hidden rounded-2xl">
             <div className="relative h-64 overflow-hidden sm:h-80">
               <Image
-                src={meme.imageUrl}
-                alt={meme.name}
+                src={project.imageUrl}
+                alt={project.name}
                 fill
                 className="object-cover"
                 unoptimized
@@ -88,14 +88,14 @@ export default function FundraisePage() {
               <div className="absolute right-6 bottom-6 left-6">
                 <div className="mb-2 flex items-center gap-3">
                   <h1 className="text-4xl font-black text-white">
-                    {meme.name}
+                    {project.name}
                   </h1>
                   <span className="bg-primary/30 text-primary rounded-full px-4 py-1 text-base font-bold backdrop-blur-sm">
-                    {meme.ticker}
+                    {project.ticker}
                   </span>
                 </div>
                 <p className="max-w-lg text-sm text-white/70">
-                  {meme.description}
+                  {project.description}
                 </p>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function FundraisePage() {
             <div>
               <h2 className="mb-1 text-xl font-black">Contribute SOL</h2>
               <p className="text-muted-foreground text-sm">
-                Fund this meme coin launch and receive tokens proportionally.
+                Fund this AI project launch and receive tokens proportionally.
               </p>
             </div>
 
@@ -281,11 +281,11 @@ export default function FundraisePage() {
                       ~
                       {(
                         (parseFloat(solAmount) / fund.solCap) *
-                        meme.tokenSupply *
+                        project.tokenSupply *
                         0.8
                       ).toLocaleString(undefined, { maximumFractionDigits: 0 })}
                       <span className="text-primary ml-1 text-sm">
-                        {meme.ticker}
+                        {project.ticker}
                       </span>
                     </p>
                     <p className="text-muted-foreground text-xs">

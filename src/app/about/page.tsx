@@ -39,14 +39,14 @@ export default function About() {
             <h1 className="mb-6 text-5xl font-extrabold sm:text-6xl">
               Community-Driven
               <span className="text-gradient font-orbitron block">
-                Meme Coin Launchpad
+                AI Project Launchpad
               </span>
             </h1>
 
             <p className="text-muted-foreground mx-auto max-w-3xl text-xl leading-relaxed">
-              Vestor operates like &quot;American Idol for meme coins&quot; —
-              the community submits, votes on, and funds meme coin launches on
-              Solana. Each 1-hour voting round determines which meme gets
+              Vestor operates like American Idol for AI projects —
+              the community submits, votes on, and funds AI project launches on
+              Solana. Each 1-hour voting round determines which project gets
               funded, with automatic token creation and Meteora liquidity pool
               seeding.
             </p>
@@ -77,7 +77,7 @@ export default function About() {
               icon: Vote,
               title: "Submit & Vote",
               description:
-                "Submit memes for free, then vote with 0.05 SOL. Each 1-hour round features one meme. One wallet = one vote maximum.",
+                "Submit projects for free, then vote with 0.05 SOL. Each 1-hour round features three projects. One wallet = one vote maximum.",
               color: "text-primary",
               bgColor: "bg-primary/10",
             },
@@ -130,8 +130,8 @@ export default function About() {
             <h2 className="mb-6 text-3xl font-bold">Why Vestor?</h2>
             <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
               <p>
-                Traditional meme coin launches are plagued by rug pulls, failed
-                projects, and lack of community input. Most tokens launch
+                Traditional AI project launches are plagued by failed
+                ventures, and lack of community input. Most tokens launch
                 without any validation or community backing.
               </p>
               <p>
@@ -141,7 +141,7 @@ export default function About() {
               </p>
               <p>
                 Our automated smart contracts eliminate human error and ensure
-                fair distribution. When a meme reaches 85 SOL, everything
+                fair distribution. When a project reaches 85 SOL, everything
                 happens automatically — token creation, liquidity seeding, and
                 contributor rewards.
               </p>
@@ -167,7 +167,7 @@ export default function About() {
                 icon: Users,
                 title: "Democratic Process",
                 description:
-                  "One wallet = one vote. Community decides which memes get funded through transparent 1-hour voting rounds.",
+                  "One wallet = one vote. Community decides which projects get funded through transparent 1-hour voting rounds.",
               },
               {
                 icon: Target,
@@ -228,7 +228,7 @@ export default function About() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">
-                  Meme Submitter Reward
+                  Project Submitter Reward
                 </span>
                 <span className="font-bold">5 SOL (6%)</span>
               </div>
@@ -300,11 +300,11 @@ export default function About() {
           className="text-center"
         >
           <h2 className="mb-6 text-3xl font-bold">
-            Ready to Shape the Future of Meme Coins?
+            Ready to Shape the Future of AI?
           </h2>
           <p className="text-muted-foreground mb-8 text-lg">
             Join 1-hour voting rounds, contribute to fundraises, and earn tokens
-            from successful launches
+            from successful AI project launches
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

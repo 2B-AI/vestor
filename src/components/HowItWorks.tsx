@@ -17,12 +17,12 @@ const HowItWorks = () => {
             {
               step: "01",
               title: "Submit",
-              desc: "Anyone can submit a meme coin idea for free. Add a name, ticker, image, and token supply.",
+              desc: "Anyone can submit an AI project idea for free. Add a name, ticker, image, and token supply.",
             },
             {
               step: "02",
               title: "Vote",
-              desc: "Community votes on memes in 1-hour rounds. 0.05 SOL per vote, 1 wallet = 1 vote.",
+              desc: "Community votes on projects in 1-hour rounds. 0.05 SOL per vote, 1 wallet = 1 vote.",
             },
             {
               step: "03",

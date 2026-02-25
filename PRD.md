@@ -1,6 +1,6 @@
 # Vestor
 
-### Community-Voted Meme Coin Launchpad on Solana
+### Community-Voted AI Project Launchpad on Solana
 
 **MVP Product Requirements Document (PRD)**
 _Version 1.0 | February 2026 | Confidential_
@@ -9,9 +9,9 @@ _Version 1.0 | February 2026 | Confidential_
 
 ## 1. Project Overview
 
-Vestor is a standalone web platform on Solana where the community submits, votes on, and funds meme coin launches. It operates like "American Idol for meme coins" — the crowd picks the winner, funds it, and receives the token supply at launch.
+Vestor is a standalone web platform on Solana where the community submits, votes on, and funds AI project launches. It operates like "American Idol for AI projects" — the crowd picks the winner, funds it, and receives the token supply at launch.
 
-Each voting round lasts 1 hour. The meme that receives the most votes is promoted to a fundraising phase where users contribute SOL. Once the raise cap of 85 SOL is filled, the token is automatically created and deployed on Meteora with a liquidity pool seeded from the raise. Contributors receive their proportional token allocation automatically.
+Each voting round lasts 1 hour. The project that receives the most votes is promoted to a fundraising phase where users contribute SOL. Once the raise cap of 85 SOL is filled, the token is automatically created and deployed on Meteora with a liquidity pool seeded from the raise. Contributors receive their proportional token allocation automatically.
 
 The platform is entirely on-chain. Voting and funding both require a connected Solana wallet. Browsing is open to all.
 
@@ -21,7 +21,7 @@ The platform is entirely on-chain. Voting and funding both require a connected S
 
 ### 2.1 MVP Goals
 
-- Allow users to submit meme coin ideas for free
+- Allow users to submit AI project ideas for free
 - Run 1-hour on-chain community voting rounds
 - Allow winners to proceed to a SOL fundraising phase (capped at 85 SOL)
 - Automatically deploy the token and seed a Meteora liquidity pool on cap fill
@@ -49,11 +49,11 @@ The platform is entirely on-chain. Voting and funding both require a connected S
 | Voting Cost             | 0.05 SOL per vote ⚠️ _assumption_                          |
 | Voting Rule             | 1 wallet = 1 vote per round, regardless of amount paid     |
 | Voting Type             | Fully on-chain                                             |
-| Meme Submission Fee     | Free                                                       |
-| Meme Resubmission       | Allowed — losing memes can be resubmitted in future rounds |
-| Voting Round Structure  | One meme per active voting slot (simpler for MVP)          |
-| SOL Raise Cap           | 85 SOL per winning meme                                    |
-| Fundraise Time Limit    | 48 hours after a meme wins ⚠️ _assumption_                 |
+| Project Submission Fee  | Free                                                          |
+| Project Resubmission    | Allowed — losing projects can be resubmitted in future rounds |
+| Voting Round Structure  | Three projects per active voting slot                         |
+| SOL Raise Cap           | 85 SOL per winning project                                    |
+| Fundraise Time Limit    | 48 hours after a project wins ⚠️ _assumption_                  |
 | Token Contract Creation | Automated on-chain upon cap fill                           |
 | Token Supply            | Variable — set by submitter at submission time             |
 | Wallet Requirement      | Required to vote or fund; browsing is open to all          |
@@ -72,7 +72,7 @@ The platform is entirely on-chain. Voting and funding both require a connected S
 | ---------------------- | ------------ | ---------------------------------------------------------- |
 | Meteora Liquidity Pool | 70 SOL (82%) | Seeded as initial trading liquidity for the token          |
 | Platform Fee           | 10 SOL (12%) | Platform revenue                                           |
-| Meme Submitter Reward  | 5 SOL (6%)   | Reward to original submitter for creating the winning meme |
+| Project Submitter Reward | 5 SOL (6%)   | Reward to original submitter for creating the winning project |
 
 ### 4.2 Token Supply Distribution
 
@@ -84,7 +84,7 @@ The platform is entirely on-chain. Voting and funding both require a connected S
 
 ### 4.3 Refund Mechanism
 
-If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the raise fails and all contributors are automatically refunded their SOL via the on-chain smart contract. No manual action is required from users.
+If the 85 SOL cap is not reached within 48 hours of a project winning the vote, the raise fails and all contributors are automatically refunded their SOL via the on-chain smart contract. No manual action is required from users.
 
 ---
 
@@ -93,9 +93,9 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 ### 5.1 Browse & Discover (No Wallet Required)
 
 - Public landing page showing the currently active voting round
-- Live vote count per meme (updates in real time)
+- Live vote count per project (updates in real time)
 - Countdown timer for the current 1-hour voting window
-- View past winning memes and their launch status (Funded / Launched / Failed)
+- View past winning projects and their launch status (Funded / Launched / Failed)
 - View active fundraising rounds with SOL raised vs cap and time remaining
 
 ### 5.2 Wallet Connection
@@ -104,33 +104,33 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 - Wallet required to vote or contribute SOL
 - One wallet per session — no multi-wallet support in MVP
 
-### 5.3 Meme Submission
+### 5.3 Project Submission
 
-- Any wallet-connected user can submit a meme for free
+- Any wallet-connected user can submit a project for free
 - Submission form fields:
-  - Meme name (e.g. PEPEWIFHAT)
-  - Ticker symbol (e.g. $PWH)
+  - Project name (e.g. NeuroLang)
+  - Ticker symbol (e.g. $NRL)
   - Short description / pitch (max 280 characters)
-  - Image or GIF upload (the meme visual)
+  - Image or logo upload (the project visual)
   - Total token supply (number set by submitter)
-- Submitted memes enter a queue and are picked up for the next available voting slot
-- Losing memes can be resubmitted in a future round by anyone
+- Submitted projects enter a queue and are picked up for the next available voting slot
+- Losing projects can be resubmitted in a future round by anyone
 
 ### 5.4 Voting
 
 - Each voting round lasts exactly 1 hour
-- Three memes are up for vote at a time
+- Three projects are up for vote at a time
 - Voting costs 0.05 SOL per vote, paid on-chain
 - 1 wallet = 1 vote maximum per round (paying more does not grant more votes)
 - Votes are recorded on-chain in real time
-- At the end of the hour, the vote count is finalized on-chain and the winning meme proceeds to fundraising
+- At the end of the hour, the vote count is finalized on-chain and the winning project proceeds to fundraising
 - Anti-manipulation: the 1-vote-per-wallet rule is enforced at the smart contract level
 
 > ℹ️ Bots are partially mitigated by the 0.05 SOL cost and 1 wallet = 1 vote rule. Further bot protection can be added post-MVP.
 
 ### 5.5 Fundraising (IPO Phase)
 
-- Winning meme enters a 48-hour fundraising window immediately after the vote ends
+- Winning project enters a 48-hour fundraising window immediately after the vote ends
 - Users contribute SOL toward the 85 SOL cap
 - Contributions are held in an on-chain escrow smart contract
 - Live progress bar shows SOL raised vs cap, and a countdown timer
@@ -145,14 +145,14 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
   - Deposits 70 SOL + ~19.5% of token supply into a new Meteora liquidity pool
   - Distributes ~80% of token supply to IPO contributors proportionally
   - Sends 0.5% of supply to platform wallet
-  - Sends 5 SOL reward to the meme submitter's wallet
+  - Sends 5 SOL reward to the project submitter's wallet
   - Retains 10 SOL as platform revenue
 - All of this happens in a single on-chain transaction sequence — no manual steps required
 - A Solscan link is shown to users after launch confirmation
 
 ### 5.7 KOL Integration (Off-Platform for MVP)
 
-- KOLs can submit memes and promote voting links manually
+- KOLs can submit projects and promote voting links manually
 - No automated KOL payment or referral tracking in MVP
 - KOL compensation to be handled off-platform for now
 
@@ -165,42 +165,42 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 | Role                    | Who They Are                     | What They Can Do                                            |
 | ----------------------- | -------------------------------- | ----------------------------------------------------------- |
 | Visitor                 | Anyone browsing without a wallet | View active vote, past launches, fundraising progress       |
-| User (Wallet Connected) | Any wallet-connected visitor     | All visitor actions + submit memes, vote, contribute SOL    |
+| User (Wallet Connected) | Any wallet-connected visitor     | All visitor actions + submit projects, vote, contribute SOL |
 | Admin                   | Internal team                    | Moderate submissions, pause rounds, view platform analytics |
 
 ---
 
 ## 7. User Flows
 
-### 7.1 Flow: Submitting a Meme
+### 7.1 Flow: Submitting a Project
 
-| #   | Actor    | Action                 | Detail                                                |
-| --- | -------- | ---------------------- | ----------------------------------------------------- |
-| 1   | User     | Connects Solana wallet | Phantom / Backpack / Solflare                         |
-| 2   | User     | Clicks "Submit a Meme" | Available from homepage                               |
-| 3   | User     | Fills submission form  | Name, ticker, description, image/GIF, token supply    |
-| 4   | Platform | Validates submission   | Checks required fields and image size limits          |
-| 5   | Platform | Adds meme to queue     | Meme enters queue for next available voting slot      |
-| 6   | User     | Sees confirmation      | "Your meme is in the queue!" with estimated slot time |
+| #   | Actor    | Action                    | Detail                                                   |
+| --- | -------- | ------------------------- | -------------------------------------------------------- |
+| 1   | User     | Connects Solana wallet    | Phantom / Backpack / Solflare                            |
+| 2   | User     | Clicks "Submit a Project" | Available from homepage                                  |
+| 3   | User     | Fills submission form     | Name, ticker, description, image/logo, token supply      |
+| 4   | Platform | Validates submission      | Checks required fields and image size limits             |
+| 5   | Platform | Adds project to queue     | Project enters queue for next available voting slot      |
+| 6   | User     | Sees confirmation         | "Your project is in the queue!" with estimated slot time |
 
-### 7.2 Flow: Voting on a Meme
+### 7.2 Flow: Voting on a Project
 
-| #   | Actor          | Action                           | Detail                                                            |
-| --- | -------------- | -------------------------------- | ----------------------------------------------------------------- |
-| 1   | Platform       | Displays active voting round     | 1 meme shown; live vote count; 1-hour countdown timer             |
-| 2   | Visitor        | Views meme details               | Name, ticker, image, description, current vote count              |
+| #   | Actor          | Action                           | Detail                                                               |
+| --- | -------------- | -------------------------------- | -------------------------------------------------------------------- |
+| 1   | Platform       | Displays active voting round     | 3 projects shown; live vote count; 1-hour countdown timer            |
+| 2   | Visitor        | Views project details            | Name, ticker, image, description, current vote count                 |
 | 3   | User           | Connects wallet (if not already) | Required to vote                                                  |
 | 4   | User           | Clicks "Vote" button             | Triggers on-chain transaction for 0.05 SOL                        |
 | 5   | Wallet         | User approves transaction        | 0.05 SOL deducted from wallet                                     |
 | 6   | Smart Contract | Records vote on-chain            | 1 wallet = 1 vote enforced at contract level                      |
 | 7   | Platform       | Updates vote count live          | Vote confirmed; count increments on UI                            |
-| 8   | Platform       | Round ends at 1 hour             | Vote count finalized on-chain; winning meme proceeds to fundraise |
+| 8   | Platform       | Round ends at 1 hour             | Vote count finalized on-chain; winning project proceeds to fundraise |
 
 ### 7.3 Flow: Contributing SOL to a Fundraise
 
 | #   | Actor          | Action                                         | Detail                                                  |
 | --- | -------------- | ---------------------------------------------- | ------------------------------------------------------- |
-| 1   | Platform       | Shows active fundraise                         | Winning meme with SOL progress bar and 48h timer        |
+| 1   | Platform       | Shows active fundraise                         | Winning project with SOL progress bar and 48h timer     |
 | 2   | User           | Connects wallet                                | —                                                       |
 | 3   | User           | Enters SOL amount to contribute                | No minimum; any amount up to remaining cap              |
 | 4   | User           | Clicks "Contribute"                            | On-chain transaction to escrow contract                 |
@@ -218,7 +218,7 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 | 3   | Smart Contract | Seeds Meteora pool                         | 70 SOL + ~19.5% of token supply deposited        |
 | 4   | Smart Contract | Distributes ~80% of supply to contributors | Proportional to each wallet's SOL contribution   |
 | 5   | Smart Contract | Sends 0.5% of supply to platform wallet    | —                                                |
-| 6   | Smart Contract | Sends 5 SOL to meme submitter's wallet     | Submitter reward                                 |
+| 6   | Smart Contract | Sends 5 SOL to project submitter's wallet  | Submitter reward                                 |
 | 7   | Smart Contract | Retains 10 SOL as platform revenue         | —                                                |
 | 8   | Platform       | Shows launch confirmation to all users     | Solscan link, token address, Meteora pool link   |
 
@@ -228,10 +228,10 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 
 ### Public Screens (No Wallet Required)
 
-- **Homepage / Active Vote Screen** — current meme, live vote count, timer, Vote CTA
-- **Active Fundraise Screen** — winning meme, SOL progress bar, 48h timer, Contribute CTA
+- **Homepage / Active Vote Screen** — current projects, live vote count, timer, Vote CTA
+- **Active Fundraise Screen** — winning project, SOL progress bar, 48h timer, Contribute CTA
 - **Past Launches Feed** — list of all past winners with status (Launched / Funded / Failed)
-- **Meme Submission Form** — name, ticker, description, image, token supply
+- **Project Submission Form** — name, ticker, description, image, token supply
 
 ### Authenticated Screens (Wallet Required to Interact)
 
@@ -240,7 +240,7 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 
 ### Admin Screens
 
-- **Submission Queue** — view and moderate incoming meme submissions
+- **Submission Queue** — view and moderate incoming project submissions
 - **Round Management** — manually pause or skip a voting round if needed
 - **Platform Analytics** — total SOL raised, tokens launched, contributor counts
 
@@ -249,7 +249,7 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 ## 9. Out of Scope for MVP
 
 - KOL referral tracking or on-platform KOL payments
-- Multiple memes competing simultaneously in one round
+- Multiple projects competing simultaneously in one round
 - Token vesting or lock-up schedules for contributors
 - Secondary trading within the platform
 - Mobile app

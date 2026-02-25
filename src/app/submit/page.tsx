@@ -73,10 +73,10 @@ export default function SubmitPage() {
           <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-xl">
             <PlusCircle className="text-primary h-5 w-5" />
           </div>
-          <h1 className="text-3xl font-black">Submit a Meme</h1>
+          <h1 className="text-3xl font-black">Submit a Project</h1>
         </div>
         <p className="text-muted-foreground mb-8">
-          Got the next big meme coin idea? Submit it for free and let the
+          Got the next big AI project idea? Submit it for free and let the
           community decide.
         </p>
       </motion.div>
@@ -90,9 +90,9 @@ export default function SubmitPage() {
           <div className="bg-neon/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
             <CheckCircle2 className="text-neon h-8 w-8" />
           </div> 
-          <h2 className="text-2xl font-black">Meme Submitted!</h2>
+          <h2 className="text-2xl font-black">Project Submitted!</h2>
           <p className="text-muted-foreground mx-auto max-w-md">
-            Your meme{" "}
+            Your project{" "}
             <span className="text-foreground font-bold">{form.name}</span> (
             {form.ticker}) has been submitted for review. You&apos;ll be notified when it
             is approved by the system.
@@ -139,7 +139,7 @@ export default function SubmitPage() {
         >
           {/* Image Upload */}
           <div className="space-y-2">
-            <Label className="text-sm font-medium">Meme Image / GIF</Label>
+            <Label className="text-sm font-medium">Project Image / Logo</Label>
             <div
               className={`relative flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-dashed transition-colors ${
                 imagePreview
@@ -170,7 +170,7 @@ export default function SubmitPage() {
                   />
                   <div className="text-center">
                     <p className="text-sm font-medium">
-                      Drop your meme here or click to upload
+                      Drop your image here or click to upload
                     </p>
                     <p className="text-muted-foreground mt-1 text-xs">
                       PNG, JPG, GIF up to 5MB
@@ -191,11 +191,11 @@ export default function SubmitPage() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-sm font-medium">
-                Meme Name
+                Project Name
               </Label>
               <Input
                 id="name"
-                placeholder="e.g. PEPEWIFHAT"
+                placeholder="e.g. NeuroLang"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="bg-secondary/50 border-border h-12"
@@ -212,7 +212,7 @@ export default function SubmitPage() {
                 </span>
                 <Input
                   id="ticker"
-                  placeholder="e.g. PWH"
+                  placeholder="e.g. NRL"
                   value={form.ticker}
                   onChange={(e) =>
                     setForm({
@@ -250,7 +250,7 @@ export default function SubmitPage() {
             </div>
             <Textarea
               id="description"
-              placeholder="Sell the community on your meme coin in 280 characters or less..."
+              placeholder="Pitch your AI project to the community in 280 characters or less..."
               value={form.description}
               onChange={(e) => {
                 if (e.target.value.length <= 280) {
@@ -393,13 +393,13 @@ export default function SubmitPage() {
               <p>
                 Submission is{" "}
                 <span className="text-foreground font-bold">free</span>. Your
-                meme will enter the queue and be picked for the next available
+                project will enter the queue and be picked for the next available
                 voting slot once it is approved.
               </p>
               <br/>
               <p>
-                If your meme doesn&apos;t win, it can be resubmitted in a future
-                round by anyone.
+                If your project doesn&apos;t win, it can be resubmitted in a future
+                round.
               </p>
             </div>
           </div>
@@ -419,7 +419,7 @@ export default function SubmitPage() {
             ) : connected ? (
               <>
                 <Zap className="h-5 w-5" />
-                Submit Meme
+                Submit Project
               </>
             ) : (
               <>

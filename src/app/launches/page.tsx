@@ -50,7 +50,7 @@ export default function LaunchesPage() {
           <h1 className="text-3xl font-black">Past Launches</h1>
         </div>
         <p className="text-muted-foreground mb-8">
-          Browse all past winning memes and their launch status.
+          Browse all past winning projects and their launch status.
         </p>
       </motion.div>
 
@@ -109,8 +109,8 @@ export default function LaunchesPage() {
                 {/* Image */}
                 <div className="relative h-48 w-full shrink-0 sm:h-auto sm:w-48">
                   <Image
-                    src={launch.meme.imageUrl}
-                    alt={launch.meme.name}
+                    src={launch.project.imageUrl}
+                    alt={launch.project.name}
                     fill
                     className="object-cover"
                     unoptimized
@@ -125,14 +125,14 @@ export default function LaunchesPage() {
                     <div>
                       <div className="mb-1 flex items-center gap-2">
                         <h3 className="text-xl font-black">
-                          {launch.meme.name}
+                          {launch.project.name}
                         </h3>
                         <span className="text-primary text-sm font-bold">
-                          {launch.meme.ticker}
+                          {launch.project.ticker}
                         </span>
                       </div>
                       <p className="text-muted-foreground line-clamp-1 text-sm">
-                        {launch.meme.description}
+                        {launch.project.description}
                       </p>
                     </div>
                     <Badge className={`${status.color} gap-1.5 px-3 py-1`}>

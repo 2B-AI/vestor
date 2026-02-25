@@ -154,8 +154,8 @@ export default function ContributionsPage() {
                 {/* Image */}
                 <div className="relative h-36 w-full shrink-0 sm:h-auto sm:w-36">
                   <Image
-                    src={contrib.meme.imageUrl}
-                    alt={contrib.meme.name}
+                    src={contrib.project.imageUrl}
+                    alt={contrib.project.name}
                     fill
                     className="object-cover"
                     unoptimized
@@ -168,10 +168,10 @@ export default function ContributionsPage() {
                     <div>
                       <div className="mb-1 flex items-center gap-2">
                         <h3 className="text-lg font-black">
-                          {contrib.meme.name}
+                          {contrib.project.name}
                         </h3>
                         <span className="text-primary text-sm font-bold">
-                          {contrib.meme.ticker}
+                          {contrib.project.ticker}
                         </span>
                       </div>
                       <p className="text-muted-foreground text-xs">
@@ -202,7 +202,7 @@ export default function ContributionsPage() {
                         <p className="text-neon text-lg font-black">
                           {contrib.tokensReceived.toLocaleString()}{" "}
                           <span className="text-primary text-sm">
-                            {contrib.meme.ticker}
+                            {contrib.project.ticker}
                           </span>
                         </p>
                       </div>

@@ -2,14 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import type { Meme } from "@/lib/mock-data";
+import type { Project } from "@/lib/mock-data";
 
-interface MemeCardProps {
-  meme: Meme;
+interface ProjectCardProps {
+  project: Project;
   size?: "sm" | "lg";
 }
 
-export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
+export function ProjectCard({ project, size = "lg" }: ProjectCardProps) {
   const isLarge = size === "lg";
 
   return (
@@ -23,8 +23,8 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
         className={`relative ${isLarge ? "h-80" : "h-48"} w-full overflow-hidden`}
       >
         <Image
-          src={meme.imageUrl}
-          alt={meme.name}
+          src={project.imageUrl}
+          alt={project.name}
           fill
           className="object-cover"
           unoptimized
@@ -32,26 +32,26 @@ export function MemeCard({ meme, size = "lg" }: MemeCardProps) {
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
         <div className="absolute right-4 bottom-4 left-4">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-black text-white">{meme.name}</span>
+            <span className="text-2xl font-black text-white">{project.name}</span>
             <span className="bg-primary/20 text-primary rounded-full px-3 py-0.5 text-sm font-bold">
-              {meme.ticker}
+              {project.ticker}
             </span>
           </div>
         </div>
       </div>
       <div className="space-y-3 p-4">
         <p className="text-muted-foreground text-sm leading-relaxed">
-          {meme.description}
+          {project.description}
         </p>
         <div className="text-muted-foreground flex items-center justify-between text-xs">
           <span>
             Supply:{" "}
             <span className="text-foreground">
-              {meme.tokenSupply.toLocaleString()}
+              {project.tokenSupply.toLocaleString()}
             </span>
           </span>
           <span>
-            by <span className="text-primary">{meme.submitter}</span>
+            by <span className="text-primary">{project.submitter}</span>
           </span>
         </div>
       </div>

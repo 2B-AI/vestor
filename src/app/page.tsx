@@ -27,39 +27,39 @@ export default function Home() {
   const [voteCounts, setVoteCounts] = useState(MOCK_ACTIVE_VOTE.voteCounts);
   const [hasVoted, setHasVoted] = useState(MOCK_ACTIVE_VOTE.hasVoted || {});
   const [voteAnimating, setVoteAnimating] = useState<{
-    [memeId: string]: boolean;
+    [projectId: string]: boolean;
   }>({});
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (Math.random() > 0.6) {
-        const memeIds = Object.keys(voteCounts);
-        const randomMemeId =
-          memeIds[Math.floor(Math.random() * memeIds.length)];
+        const projectIds = Object.keys(voteCounts);
+        const randomProjectId =
+          projectIds[Math.floor(Math.random() * projectIds.length)];
         setVoteCounts((prev) => ({
           ...prev,
-          [randomMemeId]:
-            prev[randomMemeId] + Math.floor(Math.random() * 3) + 1,
+          [randomProjectId]:
+            prev[randomProjectId] + Math.floor(Math.random() * 3) + 1,
         }));
       }
     }, 3000);
     return () => clearInterval(interval);
   }, [voteCounts]);
 
-  const handleVote = (memeId: string) => {
+  const handleVote = (projectId: string) => {
     if (!connected) {
       connect();
       return;
     }
-    setVoteAnimating((prev) => ({ ...prev, [memeId]: true }));
+    setVoteAnimating((prev) => ({ ...prev, [projectId]: true }));
     setTimeout(() => {
-      setHasVoted((prev) => ({ ...prev, [memeId]: true }));
-      setVoteCounts((prev) => ({ ...prev, [memeId]: prev[memeId] + 1 }));
-      setVoteAnimating((prev) => ({ ...prev, [memeId]: false }));
+      setHasVoted((prev) => ({ ...prev, [projectId]: true }));
+      setVoteCounts((prev) => ({ ...prev, [projectId]: prev[projectId] + 1 }));
+      setVoteAnimating((prev) => ({ ...prev, [projectId]: false }));
     }, 1200);
   };
 
-  const memes = MOCK_ACTIVE_VOTE.memes;
+  const projects = MOCK_ACTIVE_VOTE.projects;
   const totalVotes = Object.values(voteCounts).reduce(
     (sum, count) => sum + count,
     0
@@ -115,27 +115,27 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Multiple Memes Grid */}
+          {/* Projects Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {memes.map((meme, index) => {
-              const memeVoteCount = voteCounts[meme.id] || 0;
-              const memeHasVoted = hasVoted[meme.id] || false;
-              const memeVoteAnimating = voteAnimating[meme.id] || false;
+            {projects.map((project, index) => {
+              const projectVoteCount = voteCounts[project.id] || 0;
+              const projectHasVoted = hasVoted[project.id] || false;
+              const projectVoteAnimating = voteAnimating[project.id] || false;
 
               return (
                 <motion.div
-                  key={meme.id}
+                  key={project.id}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="relative"
                 >
-                  {/* Meme Card */}
+                  {/* Project Card */}
                   <div className="purple-glow bg-grid relative overflow-hidden rounded-3xl">
                     <div className="aspect-square">
                       <Image
-                        src={meme.imageUrl}
-                        alt={meme.name}
+                        src={project.imageUrl}
+                        alt={project.name}
                         height={300}
                         width={300}
                         className="h-full w-full object-cover"
@@ -157,7 +157,7 @@ export default function Home() {
                     <div className="absolute top-4 right-4">
                       <Badge className="gap-1 border-white/10 bg-black/50 text-white backdrop-blur-sm">
                         <Vote className="h-3 w-3" />
-                        {memeVoteCount}
+                        {projectVoteCount}
                       </Badge>
                     </div>
 
@@ -166,25 +166,25 @@ export default function Home() {
                       <div className="mb-4">
                         <div className="mb-2 flex items-center gap-2">
                           <h3 className="text-xl font-black text-white">
-                            {meme.name}
+                            {project.name}
                           </h3>
                           <span className="border-primary text-primary rounded-full border px-2 py-0.5 text-xs font-semibold">
-                            {meme.ticker}
+                            {project.ticker}
                           </span>
                         </div>
                         <p className="line-clamp-2 text-sm text-white/80">
-                          {meme.description}
+                          {project.description}
                         </p>
                       </div>
 
                       <div className="mb-4 flex items-center justify-between text-xs text-white/60">
-                        <span>By {meme.submitter}</span>
-                        <span>{meme.tokenSupply.toLocaleString()} supply</span>
+                        <span>By {project.submitter}</span>
+                        <span>{project.tokenSupply.toLocaleString()} supply</span>
                       </div>
 
                       {/* Vote Button */}
                       <AnimatePresence mode="wait">
-                        {memeHasVoted ? (
+                        {projectHasVoted ? (
                           <motion.div
                             key="voted"
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -203,11 +203,11 @@ export default function Home() {
                             whileTap={{ scale: 0.98 }}
                           >
                             <Button
-                              onClick={() => handleVote(meme.id)}
-                              disabled={memeVoteAnimating}
+                              onClick={() => handleVote(project.id)}
+                              disabled={projectVoteAnimating}
                               className="from-primary via-solana to-primary animate-gradient-shift shadow-primary/25 hover:shadow-primary/40 w-full gap-2 bg-linear-to-r bg-size-[200%_100%] font-bold text-white shadow-lg transition-shadow"
                             >
-                              {memeVoteAnimating ? (
+                              {projectVoteAnimating ? (
                                 <>
                                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                                   Voting...
@@ -252,7 +252,7 @@ export default function Home() {
               </div>
             </div>
             <p className="text-muted-foreground mt-4 text-sm">
-              1 wallet = 1 vote per meme • Vote for up to 3 memes
+              1 wallet = 1 vote per project • Vote for up to 3 projects
             </p>
           </motion.div>
         </div>
@@ -287,9 +287,9 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
                   <p className="text-xl font-black">
-                    {MOCK_ACTIVE_FUNDRAISE.meme.name}{" "}
+                    {MOCK_ACTIVE_FUNDRAISE.project.name}{" "}
                     <span className="text-primary text-base font-bold">
-                      {MOCK_ACTIVE_FUNDRAISE.meme.ticker}
+                      {MOCK_ACTIVE_FUNDRAISE.project.ticker}
                     </span>
                   </p>
                   <div className="flex flex-col items-end gap-1">

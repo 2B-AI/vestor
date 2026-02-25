@@ -17,9 +17,9 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Vestor — Community-Voted Meme Coin Launchpad on Solana",
+  title: "Vestor — Community-Voted AI Project Launchpad on Solana",
   description:
-    "Submit, vote on, and fund meme coin launches on Solana. The crowd picks the winner, funds it, and receives the token supply at launch.",
+    "Submit, vote on, and fund AI project launches on Solana. The crowd picks the winner, funds it, and receives the token supply at launch.",
   icons: {
     icon: "/logo.svg",
   },
