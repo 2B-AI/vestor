@@ -24,33 +24,46 @@ import HowItWorks from "@/components/HowItWorks";
 
 export default function Home() {
   const { connected, connect } = useWallet();
-  const [voteCount, setVoteCount] = useState(MOCK_ACTIVE_VOTE.voteCount);
-  const [hasVoted, setHasVoted] = useState(false);
-  const [voteAnimating, setVoteAnimating] = useState(false);
+  const [voteCounts, setVoteCounts] = useState(MOCK_ACTIVE_VOTE.voteCounts);
+  const [hasVoted, setHasVoted] = useState(MOCK_ACTIVE_VOTE.hasVoted || {});
+  const [voteAnimating, setVoteAnimating] = useState<{
+    [memeId: string]: boolean;
+  }>({});
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (Math.random() > 0.6) {
-        setVoteCount((c) => c + Math.floor(Math.random() * 3) + 1);
+        const memeIds = Object.keys(voteCounts);
+        const randomMemeId =
+          memeIds[Math.floor(Math.random() * memeIds.length)];
+        setVoteCounts((prev) => ({
+          ...prev,
+          [randomMemeId]:
+            prev[randomMemeId] + Math.floor(Math.random() * 3) + 1,
+        }));
       }
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [voteCounts]);
 
-  const handleVote = () => {
+  const handleVote = (memeId: string) => {
     if (!connected) {
       connect();
       return;
     }
-    setVoteAnimating(true);
+    setVoteAnimating((prev) => ({ ...prev, [memeId]: true }));
     setTimeout(() => {
-      setHasVoted(true);
-      setVoteCount((c) => c + 1);
-      setVoteAnimating(false);
+      setHasVoted((prev) => ({ ...prev, [memeId]: true }));
+      setVoteCounts((prev) => ({ ...prev, [memeId]: prev[memeId] + 1 }));
+      setVoteAnimating((prev) => ({ ...prev, [memeId]: false }));
     }, 1200);
   };
 
-  const meme = MOCK_ACTIVE_VOTE.meme;
+  const memes = MOCK_ACTIVE_VOTE.memes;
+  const totalVotes = Object.values(voteCounts).reduce(
+    (sum, count) => sum + count,
+    0
+  );
 
   return (
     <div className="relative">
@@ -76,7 +89,7 @@ export default function Home() {
               className="text-muted-foreground gap-1.5 px-3 py-1"
             >
               <Users className="h-3 w-3" />
-              {voteCount} votes cast
+              {totalVotes} votes cast
             </Badge>
             <Badge
               variant="outline"
@@ -87,142 +100,161 @@ export default function Home() {
             </Badge>
           </motion.div>
 
-          {/* Main Voting Card */}
-          <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
-            {/* Meme Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="relative w-full max-w-md shrink-0"
-            >
-              <div className="purple-glow bg-grid relative aspect-square overflow-hidden rounded-3xl">
-                <Image
-                  src={meme.imageUrl}
-                  alt={meme.name}
-                  height={300}
-                  width={220}
-                  className="mx-auto object-cover"
-                />
-                <div className="button-gradient mx-auto mt-3 text-white">
-                  {meme.name}
-                </div>
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <Badge className="gap-1 border-white/10 bg-black/50 text-white backdrop-blur-sm">
-                    <Flame className="h-3 w-3 text-orange-400" />
-                    Trending
-                  </Badge>
-                </div>
-                <div className="absolute right-4 bottom-4 left-4">
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex gap-1">
-                      <span className="font-medium">Submitted by</span>
-                      <span className="text-primary">{meme.submitter}</span>
+          {/* Timer Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-10 text-center"
+          >
+            <div className="inline-block rounded-md border border-[rgba(35,35,35,1)] bg-[rgba(21,21,21,1)] p-6">
+              <p className="text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase">
+                Voting Ends In
+              </p>
+              <CountdownTimer endTime={MOCK_ACTIVE_VOTE.endTime} size="lg" />
+            </div>
+          </motion.div>
+
+          {/* Multiple Memes Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {memes.map((meme, index) => {
+              const memeVoteCount = voteCounts[meme.id] || 0;
+              const memeHasVoted = hasVoted[meme.id] || false;
+              const memeVoteAnimating = voteAnimating[meme.id] || false;
+
+              return (
+                <motion.div
+                  key={meme.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  {/* Meme Card */}
+                  <div className="purple-glow bg-grid relative overflow-hidden rounded-3xl">
+                    <div className="aspect-square">
+                      <Image
+                        src={meme.imageUrl}
+                        alt={meme.name}
+                        height={300}
+                        width={300}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                    <div className="flex gap-1">
-                      <span className="font-medium">Supply</span>
-                      <span className="text-primary">
-                        {meme.tokenSupply.toLocaleString()}
-                      </span>
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
+
+                    {/* Top Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge className="gap-1 border-white/10 bg-black/50 text-white backdrop-blur-sm">
+                        <Flame className="h-3 w-3 text-orange-400" />#
+                        {index + 1}
+                      </Badge>
+                    </div>
+
+                    {/* Vote Count Badge */}
+                    <div className="absolute top-4 right-4">
+                      <Badge className="gap-1 border-white/10 bg-black/50 text-white backdrop-blur-sm">
+                        <Vote className="h-3 w-3" />
+                        {memeVoteCount}
+                      </Badge>
+                    </div>
+
+                    {/* Content */}
+                    <div className="absolute right-0 bottom-0 left-0 p-6">
+                      <div className="mb-4">
+                        <div className="mb-2 flex items-center gap-2">
+                          <h3 className="text-xl font-black text-white">
+                            {meme.name}
+                          </h3>
+                          <span className="border-primary text-primary rounded-full border px-2 py-0.5 text-xs font-semibold">
+                            {meme.ticker}
+                          </span>
+                        </div>
+                        <p className="line-clamp-2 text-sm text-white/80">
+                          {meme.description}
+                        </p>
+                      </div>
+
+                      <div className="mb-4 flex items-center justify-between text-xs text-white/60">
+                        <span>By {meme.submitter}</span>
+                        <span>{meme.tokenSupply.toLocaleString()} supply</span>
+                      </div>
+
+                      {/* Vote Button */}
+                      <AnimatePresence mode="wait">
+                        {memeHasVoted ? (
+                          <motion.div
+                            key="voted"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="bg-neon/20 border-neon/30 flex items-center justify-center gap-2 rounded-full border px-4 py-3"
+                          >
+                            <CheckCircle2 className="text-neon h-4 w-4" />
+                            <span className="text-neon text-sm font-bold">
+                              Voted!
+                            </span>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="vote"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <Button
+                              onClick={() => handleVote(meme.id)}
+                              disabled={memeVoteAnimating}
+                              className="from-primary via-solana to-primary animate-gradient-shift shadow-primary/25 hover:shadow-primary/40 w-full gap-2 bg-linear-to-r bg-size-[200%_100%] font-bold text-white shadow-lg transition-shadow"
+                            >
+                              {memeVoteAnimating ? (
+                                <>
+                                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                                  Voting...
+                                </>
+                              ) : (
+                                <>
+                                  <Vote className="h-4 w-4" />
+                                  {connected
+                                    ? "Vote — 0.05 SOL"
+                                    : "Connect to Vote"}
+                                </>
+                              )}
+                            </Button>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Voting Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex-1 space-y-6 text-center lg:text-left"
-            >
-              <div>
-                <div className="mb-3 flex items-baseline justify-center gap-3 lg:justify-start">
-                  <h1 className="text-5xl font-extrabold sm:text-6xl">
-                    {meme.name}
-                  </h1>
-                  <span className="border-primary text-primary mb-1 rounded-full border px-2 py-0.5 font-semibold">
-                    {meme.ticker}
-                  </span>
-                </div>
-                <p className="max-w-lg text-lg leading-relaxed">
-                  {meme.description}
-                </p>
-              </div>
-
-              {/* Timer */}
-              <div className="inline-block rounded-md border border-[rgba(35,35,35,1)] bg-[rgba(21,21,21,1)] p-6">
-                <p className="text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase">
-                  Voting Ends In
-                </p>
-                <CountdownTimer endTime={MOCK_ACTIVE_VOTE.endTime} size="lg" />
-              </div>
-
-              {/* Vote Count */}
-              <div className="flex items-center justify-center gap-8 lg:justify-start">
-                <div>
-                  <p className="text-gradient text-4xl font-black tabular-nums">
-                    {voteCount}
-                  </p>
-                  <p className="text-sm font-medium">Total Votes</p>
-                </div>
-                <div className="border-primary/20 h-12 w-px border" />
-                <div>
-                  <p className="text-foreground text-4xl font-black">0.05</p>
-                  <p className="text-sm font-medium">SOL per vote</p>
-                </div>
-              </div>
-
-              {/* Vote Button */}
-              <div className="flex flex-col items-center gap-4 sm:flex-row">
-                <AnimatePresence mode="wait">
-                  {hasVoted ? (
-                    <motion.div
-                      key="voted"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="bg-neon/10 border-neon/20 flex items-center gap-2 rounded-full border px-8 py-4"
-                    >
-                      <CheckCircle2 className="text-neon h-5 w-5" />
-                      <span className="text-neon font-bold">
-                        Vote Recorded!
-                      </span>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="vote"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        onClick={handleVote}
-                        disabled={voteAnimating}
-                        size="lg"
-                        className="from-primary via-solana to-primary animate-gradient-shift shadow-primary/25 hover:shadow-primary/40 relative cursor-pointer gap-2 overflow-hidden rounded-md bg-linear-to-r bg-size-[200%_100%] px-10 py-7 text-lg font-black text-white shadow-lg transition-shadow"
-                      >
-                        {voteAnimating ? (
-                          <>
-                            <div className="h-5 w-5 animate-spin rounded-md border-2 border-white/30 border-t-white" />
-                            Confirming...
-                          </>
-                        ) : (
-                          <>
-                            <Vote className="h-5 w-5" />
-                            {connected
-                              ? "Vote Now — 0.05 SOL"
-                              : "Connect Wallet to Vote"}
-                          </>
-                        )}
-                      </Button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                <p className="text-sm">1 wallet = 1 vote per round</p>
-              </div>
-            </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
+
+          {/* Voting Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-10 text-center"
+          >
+            <div className="flex items-center justify-center gap-8">
+              <div>
+                <p className="text-gradient text-3xl font-black tabular-nums">
+                  {totalVotes}
+                </p>
+                <p className="text-sm font-medium">Total Votes</p>
+              </div>
+              <div className="border-primary/20 h-12 w-px border" />
+              <div>
+                <p className="text-foreground text-3xl font-black">0.05</p>
+                <p className="text-sm font-medium">SOL per vote</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground mt-4 text-sm">
+              1 wallet = 1 vote per meme • Vote for up to 3 memes
+            </p>
+          </motion.div>
         </div>
       </section>
 

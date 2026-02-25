@@ -11,12 +11,12 @@ export interface Meme {
 
 export interface VotingRound {
   id: string;
-  meme: Meme;
+  memes: Meme[];
   startTime: Date;
   endTime: Date;
-  voteCount: number;
+  voteCounts: { [memeId: string]: number };
   status: "active" | "ended";
-  hasVoted?: boolean;
+  hasVoted?: { [memeId: string]: boolean };
 }
 
 export interface Fundraise {
@@ -116,12 +116,20 @@ const oneHourFromNow = new Date(now.getTime() + 3600000);
 
 export const MOCK_ACTIVE_VOTE: VotingRound = {
   id: "round-42",
-  meme: MOCK_MEMES[0],
+  memes: [MOCK_MEMES[0], MOCK_MEMES[1], MOCK_MEMES[2]],
   startTime: now,
   endTime: oneHourFromNow,
-  voteCount: 247,
+  voteCounts: {
+    "1": 247,
+    "2": 189,
+    "3": 156,
+  },
   status: "active",
-  hasVoted: false,
+  hasVoted: {
+    "1": false,
+    "2": false,
+    "3": false,
+  },
 };
 
 export const MOCK_ACTIVE_FUNDRAISE: Fundraise = {
