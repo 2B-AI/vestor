@@ -33,7 +33,7 @@ export default function About() {
           >
             <Badge className="bg-primary/10 text-primary border-primary/20 mb-6 gap-1.5 px-4 py-2">
               <Zap className="h-4 w-4" />
-              About MemeVote
+              About Vestor
             </Badge>
 
             <h1 className="mb-6 text-5xl font-extrabold sm:text-6xl">
@@ -44,7 +44,7 @@ export default function About() {
             </h1>
 
             <p className="text-muted-foreground mx-auto max-w-3xl text-xl leading-relaxed">
-              MemeVote operates like &quot;American Idol for meme coins&quot; —
+              Vestor operates like &quot;American Idol for meme coins&quot; —
               the community submits, votes on, and funds meme coin launches on
               Solana. Each 1-hour voting round determines which meme gets
               funded, with automatic token creation and Meteora liquidity pool
@@ -63,7 +63,7 @@ export default function About() {
           className="mb-12 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold">
-            How <span className="text-gradient font-orbitron">MemeVote</span>{" "}
+            How <span className="text-gradient font-orbitron">Vestor</span>{" "}
             Works
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -127,7 +127,7 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <h2 className="mb-6 text-3xl font-bold">Why MemeVote?</h2>
+            <h2 className="mb-6 text-3xl font-bold">Why Vestor?</h2>
             <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
               <p>
                 Traditional meme coin launches are plagued by rug pulls, failed
@@ -135,7 +135,7 @@ export default function About() {
                 without any validation or community backing.
               </p>
               <p>
-                MemeVote solves this with a democratic, on-chain process. Every
+                Vestor solves this with a democratic, on-chain process. Every
                 token that launches has been voted on by the community and
                 funded by real believers. No more gambling on random launches.
               </p>

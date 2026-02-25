@@ -40,8 +40,7 @@ export function Header() {
             <Image src="/logo.svg" alt="Logo" width={32} height={32} />
 
             <span className="font-orbitron text-xl font-black tracking-tight">
-              <span className="text-gradient">Meme</span>
-              <span className="text-foreground">Vote</span>
+              <span className="text-gradient">Vestor</span>
             </span>
           </Link>
 

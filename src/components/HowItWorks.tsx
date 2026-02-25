@@ -9,7 +9,7 @@ const HowItWorks = () => {
         transition={{ delay: 1 }}
       >
         <h2 className="mb-16 text-4xl font-bold">
-          How <span className="text-gradient font-orbitron">MemeVote</span>{" "}
+          How <span className="text-gradient font-orbitron">Vestor</span>{" "}
           Works
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

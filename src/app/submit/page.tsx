@@ -89,20 +89,20 @@ export default function SubmitPage() {
         >
           <div className="bg-neon/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
             <CheckCircle2 className="text-neon h-8 w-8" />
-          </div>
+          </div> 
           <h2 className="text-2xl font-black">Meme Submitted!</h2>
           <p className="text-muted-foreground mx-auto max-w-md">
             Your meme{" "}
             <span className="text-foreground font-bold">{form.name}</span> (
-            {form.ticker}) is now in the queue. You&apos;ll be notified when it
-            enters a voting round.
+            {form.ticker}) has been submitted for review. You&apos;ll be notified when it
+            is approved by the system.
           </p>
           <div className="bg-grid inline-block rounded-xl p-4">
             <p className="text-muted-foreground mb-1 text-xs tracking-widest uppercase">
-              Estimated Slot
+              Estimated Approval Time
             </p>
             <p className="text-primary text-lg font-bold">
-              ~2-3 rounds from now
+              ~36 hours
             </p>
           </div>
           <div className="pt-4">

@@ -1,4 +1,4 @@
-# MemeVote
+# Vestor
 
 ### Community-Voted Meme Coin Launchpad on Solana
 
@@ -9,7 +9,7 @@ _Version 1.0 | February 2026 | Confidential_
 
 ## 1. Project Overview
 
-MemeVote is a standalone web platform on Solana where the community submits, votes on, and funds meme coin launches. It operates like "American Idol for meme coins" — the crowd picks the winner, funds it, and receives the token supply at launch.
+Vestor is a standalone web platform on Solana where the community submits, votes on, and funds meme coin launches. It operates like "American Idol for meme coins" — the crowd picks the winner, funds it, and receives the token supply at launch.
 
 Each voting round lasts 1 hour. The meme that receives the most votes is promoted to a fundraising phase where users contribute SOL. Once the raise cap of 85 SOL is filled, the token is automatically created and deployed on Meteora with a liquidity pool seeded from the raise. Contributors receive their proportional token allocation automatically.
 
@@ -273,4 +273,4 @@ If the 85 SOL cap is not reached within 48 hours of a meme winning the vote, the
 
 ---
 
-_MemeVote MVP PRD | v1.0 | February 2026 | For Internal Use Only_
+_Vestor MVP PRD | v1.0 | February 2026 | For Internal Use Only_
