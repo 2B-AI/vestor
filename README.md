@@ -2,6 +2,8 @@
 
 **Community-Voted Meme Coin Launchpad on Solana**
 
+🌐 **Live Site**: [https://vestorfun.com/](https://vestorfun.com/)
+
 Vestor operates like "American Idol for meme coins" — the community submits, votes on, and funds meme coin launches on Solana. Each 1-hour voting round determines which meme gets funded, with automatic token creation and Meteora liquidity pool seeding.
 
 ## Data Flow & Architecture

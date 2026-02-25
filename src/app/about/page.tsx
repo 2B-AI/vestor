@@ -36,11 +36,10 @@ export default function About() {
               About Vestor
             </Badge>
 
-            <h1 className="mb-6 text-5xl font-extrabold sm:text-6xl">
-              Community-Driven
-              <span className="text-gradient font-orbitron block">
-                AI Project Launchpad
-              </span>
+            <h1 className="mb-6 space-x-2 text-5xl font-extrabold sm:text-7xl">
+              <span>No</span>
+              <span className="text-gradient font-orbitron">Blind</span>
+              <span>Bets</span>
             </h1>
 
             <p className="text-muted-foreground mx-auto max-w-3xl text-xl leading-relaxed">
